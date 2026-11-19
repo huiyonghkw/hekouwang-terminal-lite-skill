@@ -1016,7 +1016,7 @@ case "${1:-}" in
 
   if [ "$UPDATE" = "1" ]; then
     # ⚠️ --update 会 rsync --delete，对着一个非 git 目录跑等于清空它。必须先确认是仓。
-    #    `-e` 而不是 `-d`：public/ 是 git worktree，.git 是文件不是目录。
+    #    `-e` 而不是 `-d`：目标若是 worktree，.git 可能是文件不是目录。
     [ -e "$DEST/.git" ] || {
       printf "${r}✗ %s 不是 git 仓（没有 .git）—— --update 拒绝对它下手${o}\n" "$DEST"
       printf "${d}  第一次建仓：去掉 --update，导进一个空目录。${o}\n"; exit 1; }
@@ -1083,9 +1083,9 @@ case "${1:-}" in
   else
     printf "\n${g}═══ 完成 ═══${o}\n"
     printf "文件数：%s\n" "$(find "$DEST" -type f | wc -l | tr -d ' ')"
-    printf "\n${d}下一步（lite 公开面走 public 工作树；付费版走 zip）：\n"
-    printf "  cd %s && git init && git add -A && git commit -m 'initial'\n" "$DEST"
-    printf "  ${d}同步进 public/ 后跑 git -C public push origin HEAD:main；付费版走 ./scripts/release.sh --pack 生成 zip。${o}\n"
+    printf "\n${d}下一步（T1-b 后公开面直接推主仓；付费版走 zip）：\n"
+    printf "  ${d}主仓已是 Lite：git push origin   # 推 main\n"
+    printf "  ${d}付费版：./scripts/release.sh --pack   # → dist/<version>/…-paid.zip${o}\n"
     printf "${o}"
   fi
   ;;
