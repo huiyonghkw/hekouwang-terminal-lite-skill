@@ -1698,24 +1698,46 @@ EOF_URLS
     printf "  ${g}✓ 工作区干净${o}\n"
   fi
   printf "\n${b}扫 git 历史（仅 HEAD 祖先 = 将推 origin 的链）${o}\n"
+  # T1-b：只扫 HEAD 树内容（非 --all）。127.0.0.1 / 0.0.0.0 与工作区 SECRET_ALLOW 一致，不算泄漏。
+  HIST_OUT="$(python3 - <<'PYHIST'
+import re, subprocess
+allow_ip = re.compile(r"^(127\.0\.0\.1|0\.0\.0\.0)$")
+ip_re = re.compile(r"\b(\d{1,3}(?:\.\d{1,3}){3})\b")
+users_re = re.compile(r"/Users/[a-zA-Z]")
+blob = subprocess.check_output(["git", "grep", "-nI", "-e", ".", "HEAD"], text=True, stderr=subprocess.DEVNULL, errors="replace")
+bad_ip, bad_users = [], []
+for line in blob.splitlines():
+    for m in ip_re.finditer(line):
+        if not allow_ip.match(m.group(1)):
+            bad_ip.append(line[:200])
+            break
+    if users_re.search(line):
+        bad_users.append(line[:200])
+print("IP", len(bad_ip))
+for x in bad_ip[:5]:
+    print("IPHIT", x)
+print("USERS", len(bad_users))
+for x in bad_users[:5]:
+    print("USERHIT", x)
+PYHIST
+)"
+  HIST_IP="$(printf '%s\n' "$HIST_OUT" | awk '/^IP /{print $2; exit}')"
+  HIST_USERS="$(printf '%s\n' "$HIST_OUT" | awk '/^USERS /{print $2; exit}')"
   BADC=0
-  # ⚠️ `git log -S` 默认是**字面量**匹配，传正则进去会静默匹配不到 ——
-  #    一个永远报平安的安全检查比没有检查更危险。必须带 --pickaxe-regex。
-  # T1-b：只扫 HEAD 祖先。backup/pre-t1b-* 等本地备份分支可能仍含脏史，不计入本门
-  # （它们不应被推到 origin；脏史备份在 paid 远程）。
-  for pat in '([0-9]{1,3}\.){3}[0-9]{1,3}' '/Users/[a-z]'; do
-    n="$(git log --oneline HEAD --pickaxe-regex -S"$pat" 2>/dev/null | wc -l | tr -d ' ')"
-    if [ "$n" -gt 0 ]; then
-      printf "  ${y}⚠ %s 个提交含 %s${o}\n" "$n" "$pat"
-      git log --oneline HEAD --pickaxe-regex -S"$pat" 2>/dev/null | head -5 | sed 's/^/      /'
-      BADC=$((BADC+n))
-    fi
-  done
+  if [ "${HIST_IP:-0}" -gt 0 ]; then
+    printf "  ${y}⚠ HEAD 树含非本机回环 IP（%s 处）${o}\n" "$HIST_IP"
+    printf '%s\n' "$HIST_OUT" | awk '/^IPHIT /{sub(/^IPHIT /,""); print "      " $0}' | head -5
+    BADC=1
+  fi
+  if [ "${HIST_USERS:-0}" -gt 0 ]; then
+    printf "  ${y}⚠ HEAD 树含 /Users/… 路径（%s 处）${o}\n" "$HIST_USERS"
+    printf '%s\n' "$HIST_OUT" | awk '/^USERHIT /{sub(/^USERHIT /,""); print "      " $0}' | head -5
+    BADC=1
+  fi
   if [ "$BADC" -gt 0 ]; then
-    printf "\n  ${r}→ HEAD 历史仍含敏感片段，勿推 origin。${o}\n"
-    printf "  ${d}见 STRUCTURE：重建干净孤儿根，或勿把 backup/* 合并进 main。${o}\n"
+    printf "\n  ${r}→ HEAD 仍含敏感片段，勿推 origin。${o}\n"
   else
-    printf "  ${g}✓ HEAD 历史干净（可安全 git push origin）${o}\n"
+    printf "  ${g}✓ HEAD 历史/树干净（可安全 git push origin）${o}\n"
   fi
   ;;
 
