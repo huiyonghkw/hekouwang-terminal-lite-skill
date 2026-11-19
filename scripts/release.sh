@@ -1697,23 +1697,25 @@ EOF_URLS
   if scan_dir "$SCRIPT_DIR"; then
     printf "  ${g}✓ 工作区干净${o}\n"
   fi
-  printf "\n${b}扫 git 历史${o}\n"
+  printf "\n${b}扫 git 历史（仅 HEAD 祖先 = 将推 origin 的链）${o}\n"
   BADC=0
   # ⚠️ `git log -S` 默认是**字面量**匹配，传正则进去会静默匹配不到 ——
   #    一个永远报平安的安全检查比没有检查更危险。必须带 --pickaxe-regex。
+  # T1-b：只扫 HEAD 祖先。backup/pre-t1b-* 等本地备份分支可能仍含脏史，不计入本门
+  # （它们不应被推到 origin；脏史备份在 paid 远程）。
   for pat in '([0-9]{1,3}\.){3}[0-9]{1,3}' '/Users/[a-z]'; do
-    n="$(git log --oneline --all --pickaxe-regex -S"$pat" 2>/dev/null | wc -l | tr -d ' ')"
+    n="$(git log --oneline HEAD --pickaxe-regex -S"$pat" 2>/dev/null | wc -l | tr -d ' ')"
     if [ "$n" -gt 0 ]; then
       printf "  ${y}⚠ %s 个提交含 %s${o}\n" "$n" "$pat"
-      git log --oneline --all --pickaxe-regex -S"$pat" 2>/dev/null | head -5 | sed 's/^/      /'
+      git log --oneline HEAD --pickaxe-regex -S"$pat" 2>/dev/null | head -5 | sed 's/^/      /'
       BADC=$((BADC+n))
     fi
   done
   if [ "$BADC" -gt 0 ]; then
-    printf "\n  ${r}→ 所以不能把本仓改成 public。${o}\n"
-    printf "  ${d}用 ./scripts/release.sh --lite 导出干净副本，在**新仓**里 git init。${o}\n"
+    printf "\n  ${r}→ HEAD 历史仍含敏感片段，勿推 origin。${o}\n"
+    printf "  ${d}见 STRUCTURE：重建干净孤儿根，或勿把 backup/* 合并进 main。${o}\n"
   else
-    printf "  ${g}✓ 历史也干净${o}\n"
+    printf "  ${g}✓ HEAD 历史干净（可安全 git push origin）${o}\n"
   fi
   ;;
 
