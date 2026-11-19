@@ -38,7 +38,7 @@ hekouwang-terminal-skill/     # = 公开 Lite 仓本体（origin）
 ├── RELEASE.md · STRUCTURE.md · .clawhubignore
 ├── VERSION                   # = edition/VERSION
 ├── edition/                  # 本地仓：Pro 增量（无公开远程）
-├── plans/                    # 本地仓：升级规划
+├── roadmap/                    # 本地仓：升级与作战地图
 ├── services/terminal-402/    # 私有按次服务
 └── dist/<version>/           # 不版控
 ```
@@ -54,7 +54,7 @@ hekouwang-terminal-skill/     # = 公开 Lite 仓本体（origin）
 
 ## 归属
 
-主仓 / `edition`+`plans` / `services`。货架 `materials/` 可进 git，不进安装包。  
+主仓 / `edition`+`roadmap` / `services`。货架 `materials/` 可进 git，不进安装包。  
 本机 Pro 调试：`./scripts/dev-overlay-from-edition.sh`（叠回路径已 ignore）。
 
 ---
@@ -90,7 +90,7 @@ hekouwang-terminal-skill/     # = 公开 Lite 仓本体（origin）
 ## 禁止
 
 - 免费版与专业版同名  
-- 给 `edition/`、`plans/` 加公开远程  
+- 给 `edition/`、`roadmap/` 加公开远程  
 - 把「必选 `public/`」写回标准  
 - `materials/` / listing 进 Skill/ClawHub 包  
 - 把 overlay Pro 路径提交进主仓  
