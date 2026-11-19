@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+/* Sync lang before paint: ?lang -> localStorage -> navigator */
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+if(s==='zh')document.documentElement.classList.add('lang-zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Node manager · 会勇禾口王·终端工作台</title>
+<meta name="description" content="fnm / nvm / brew / vfox — keep exactly one.">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/node.html">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="../feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="会勇禾口王·终端工作台">
+<meta property="og:title" content="Node manager · 会勇禾口王·终端工作台">
+<meta property="og:description" content="fnm / nvm / brew / vfox — keep exactly one.">
+<meta property="og:url" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/node.html">
+<meta property="og:image" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "文档",
+      "item": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Node 管理器",
+      "item": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/node.html"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="../favicon.svg?v=4" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png?v=5">
+<link rel="shortcut icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3">
+
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/tw.css">
+<link rel="stylesheet" href="../assets/site.css?v=3.3.5">
+<script defer src="../assets/toc.js"></script>
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+<div id="prog"></div>
+<header id="site-nav" class="sticky top-0 border-b border-ash-100/10 bg-ink-950/85 backdrop-blur-xl z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="../index.html" class="brand-mark">
+      <img src="../images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="transition hover:text-ash-100" href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="text-ash-100" href="../guide/index.html" aria-current="page"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="../pricing.html" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"><span class="en">Buy</span><span class="zh">购买</span></a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+<div class="mx-auto max-w-6xl"><div class="docgrid mx-auto grid max-w-6xl gap-10 px-5 py-10 md:grid-cols-[220px_1fr] md:px-8 md:py-14">
+<aside class="side hidden text-sm text-ash-400 md:block" aria-label="Docs">
+<style>.side a{display:block;padding:.35rem 0;color:#9a8d80}.side a:hover{color:#f3eee6}.side a[aria-current=page]{color:#e8915a}.side .st{font-family:IBM Plex Mono,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#6f655c;margin:1rem 0 .4rem}.side .grp{margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(243,238,230,.08)}</style>
+  <div class="st"><span class="en">Guide</span><span class="zh">指南</span></div>
+  <a href="../guide/index.html"><span class="en">Intro</span><span class="zh">简介</span></a>
+  <a href="../guide/install.html"><span class="en">Install</span><span class="zh">安装</span></a>
+  <a href="../guide/theme.html"><span class="en">Themes &amp; auto</span><span class="zh">换肤与跟随</span></a>
+  <a href="../guide/terminals.html"><span class="en">Terminal coverage</span><span class="zh">终端覆盖</span></a>
+  <a href="../guide/doctor.html"><span class="en">Doctor</span><span class="zh">体检</span></a>
+  <a href="../guide/uninstall.html"><span class="en">Uninstall</span><span class="zh">卸载</span></a>
+  <div class="grp">
+    <div class="st"><span class="en">Also</span><span class="zh">另见</span></div>
+    <a href="../tools/index.html"><span class="en">CLI index</span><span class="zh">脚本索引</span></a>
+    <a href="../themes/index.html"><span class="en">Theme gallery</span><span class="zh">主题画廊</span></a>
+    <a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+    <a href="../changelog.html"><span class="en">Changelog</span><span class="zh">更新日志</span></a>
+  </div>
+</aside>
+<article class="doc prose-hkw min-w-0">
+<div class="crumb mb-4 font-mono text-xs text-ash-500"><a href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a> · <a href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a> · <span class="en">Node manager</span><span class="zh">Node 管理器</span></div>
+<h1 class="font-display text-3xl font-bold tracking-tight text-ash-100 md:text-4xl"><span class="en">Node manager</span><span class="zh">Node 管理器</span></h1>
+<p class="lead mt-3 text-lg text-ash-300"><span class="en">fnm / nvm / brew / vfox — keep exactly one.</span><span class="zh">fnm / nvm / brew / vfox —— 只留一套。</span></p>
+
+<div class="h2sub mt-2 font-mono text-xs tracking-wide text-ash-500">./scripts/node-mgr.sh · exactly one</div>
+<p><span class="en">Pick one Node version manager. Mixing fnm / nvm / brew node / vfox makes PATH fight itself. The choice is saved in <code>~/.config/hekouwang-terminal/node-manager</code>; the shell snippet is <code>~/.config/hekouwang-terminal/node.sh</code>. <code>~/.zshrc</code> sources only that snippet, so switching managers does not rewrite your whole rc file.</span><span class="zh">只选一套 Node 版本管理器。混用 fnm / nvm / brew node / vfox 会让 PATH 打架。选择记在 <code>~/.config/hekouwang-terminal/node-manager</code>；实际加载的是 <code>~/.config/hekouwang-terminal/node.sh</code>。<code>~/.zshrc</code> 只 source 这一份片段，换管理器不用改整份 rc。</span></p>
+
+<h2><span class="en">How to tell which one is active</span><span class="zh">怎么判定当前用的是哪套</span></h2>
+<p><span class="en">Check the saved choice first, then what the current shell actually loaded:</span><span class="zh">先看「记录里选了哪套」，再看「当前 shell 实际加载了什么」：</span></p>
+<div class="term term-chrome my-5 overflow-hidden rounded-sm"><div class="dots flex items-center gap-1.5 border-b border-ash-100/5 px-4 py-2.5"><i></i><i></i><i></i><span>node status</span></div>
+<pre class="sc"><span class="cm"># <span class="en">1) Saved choice (the file the dashboard reads)</span><span class="zh">1) 记录里的选择（仪表盘读的就是它）</span></span>
+<span class="p">$</span> <span class="o">cat</span> ~/.config/hekouwang-terminal/node-manager
+
+<span class="cm"># <span class="en">2) Same value, formatted; no file means not chosen yet</span><span class="zh">2) 同一个值，格式化输出；文件不存在＝还没选过</span></span>
+<span class="p">$</span> <span class="o">./scripts/node-mgr.sh</span> --status
+<span class="p">$</span> <span class="o">./scripts/doctor.sh</span> --status      <span class="cm"># <span class="en">dashboard `node` row</span><span class="zh">仪表盘的 node 行</span></span>
+
+<span class="cm"># <span class="en">3) What this shell really sees</span><span class="zh">3) 当前 shell 真正看到的东西</span></span>
+<span class="p">$</span> <span class="o">command -v</span> node &amp;&amp; node -v
+<span class="p">$</span> <span class="o">type</span> fnm nvm vfox 2&gt;/dev/null</pre></div>
+<p><span class="en">A healthy setup loads exactly one manager. If <code>type</code> shows more than one, the conflict check below will catch it.</span><span class="zh">正常状态只加载一套管理器。若 <code>type</code> 同时列出两套以上，下面的冲突检查会报出来。</span></p>
+
+<h2><span class="en">The four choices</span><span class="zh">四选一</span></h2>
+<div class="tablewrap"><table>
+<thead><tr>
+  <th><span class="en">Choice</span><span class="zh">选项</span></th>
+  <th><span class="en">Install</span><span class="zh">安装</span></th>
+  <th><span class="en">What the snippet actually runs</span><span class="zh">片段实际执行什么</span></th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><code>fnm</code></td>
+  <td><code>brew install fnm</code></td>
+  <td><span class="en"><code>command -v fnm &amp;&amp; eval "$(fnm env --use-on-cd)"</code> — switches versions on <code>cd</code> via <code>.nvmrc</code> / <code>.node-version</code>.</span><span class="zh"><code>command -v fnm &amp;&amp; eval "$(fnm env --use-on-cd)"</code> —— 进目录时按 <code>.nvmrc</code> / <code>.node-version</code> 自动切版本。</span></td>
+</tr>
+<tr>
+  <td><code>nvm</code></td>
+  <td><code>brew install nvm</code><br><span class="muted"><span class="en">or the official <code>~/.nvm</code></span><span class="zh">或官方 <code>~/.nvm</code></span></span></td>
+  <td><span class="en"><code>export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"</code>, then source <code>$NVM_DIR/nvm.sh</code>. Falls back to <code>$HOMEBREW_PREFIX/opt/nvm/nvm.sh</code>, <code>/opt/homebrew/opt/nvm/nvm.sh</code>, <code>/usr/local/opt/nvm/nvm.sh</code>.</span><span class="zh"><code>export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"</code>，再 source <code>$NVM_DIR/nvm.sh</code>。找不到时依次回退到 <code>$HOMEBREW_PREFIX/opt/nvm/nvm.sh</code>、<code>/opt/homebrew/opt/nvm/nvm.sh</code>、<code>/usr/local/opt/nvm/nvm.sh</code>。</span></td>
+</tr>
+<tr>
+  <td><code>brew</code></td>
+  <td><code>brew install node</code></td>
+  <td><span class="en">Puts <code>$HOMEBREW_PREFIX/opt/node/bin</code> on PATH (or <code>brew --prefix node</code>). One current Node, not a version manager.</span><span class="zh">把 <code>$HOMEBREW_PREFIX/opt/node/bin</code> 加进 PATH（或 <code>brew --prefix node</code>）。只有一个当前版本，不是版本管理器。</span></td>
+</tr>
+<tr>
+  <td><code>vfox</code></td>
+  <td><code>brew install vfox</code></td>
+  <td><span class="en"><code>command -v vfox &amp;&amp; eval "$(vfox activate zsh)"</code>; then <code>vfox add nodejs</code> and <code>vfox use nodejs@&lt;version&gt;</code>.</span><span class="zh"><code>command -v vfox &amp;&amp; eval "$(vfox activate zsh)"</code>；再 <code>vfox add nodejs</code> 与 <code>vfox use nodejs@&lt;版本&gt;</code>。</span></td>
+</tr>
+</tbody></table></div>
+
+<h2><span class="en">Switch and verify</span><span class="zh">切换与验证</span></h2>
+<div class="term term-chrome my-5 overflow-hidden rounded-sm"><div class="dots flex items-center gap-1.5 border-b border-ash-100/5 px-4 py-2.5"><i></i><i></i><i></i><span>node-mgr</span></div>
+<pre class="sc"><span class="p">$</span> <span class="o">./scripts/node-mgr.sh</span> fnm          <span class="cm"># <span class="en">default / recommended</span><span class="zh">默认 / 推荐</span></span>
+<span class="p">$</span> <span class="o">./scripts/node-mgr.sh</span> nvm
+<span class="p">$</span> <span class="o">./scripts/node-mgr.sh</span> brew         <span class="cm"># <span class="en">single Homebrew node</span><span class="zh">Homebrew 单版本 node</span></span>
+<span class="p">$</span> <span class="o">./scripts/node-mgr.sh</span> vfox
+
+<span class="cm"># <span class="en">aliases accepted: fast → fnm · node / brew-node → brew · version-fox → vfox</span><span class="zh">接受别名：fast → fnm · node / brew-node → brew · version-fox → vfox</span></span>
+
+<span class="cm"># <span class="en">Reload the shell, then verify</span><span class="zh">重载 shell 后再验证</span></span>
+<span class="p">$</span> <span class="o">exec</span> zsh
+<span class="p">$</span> <span class="o">command -v</span> node &amp;&amp; node -v
+<span class="p">$</span> <span class="o">cat</span> ~/.config/hekouwang-terminal/node-manager</pre></div>
+<p><span class="en">At install time use <code>./scripts/install.sh --node fnm|nvm|brew|vfox</code>; it is remembered. If <code>~/.zshrc</code> does not source the snippet, <code>node-mgr.sh</code> prints a hint — re-run install or add the one source line.</span><span class="zh">安装时也能钉：<code>./scripts/install.sh --node fnm|nvm|brew|vfox</code>，会记住。若 <code>~/.zshrc</code> 没有 source 那份片段，<code>node-mgr.sh</code> 会提示 —— 重跑安装或补那一行 source。</span></p>
+
+<h2><span class="en">When two managers conflict</span><span class="zh">两套管理器打架时</span></h2>
+<p><span class="en"><code>./scripts/doctor.sh</code> section 6 scans <code>~/.zshrc</code>, <code>~/.zshrc.local</code> and the generated <code>node.sh</code> for four patterns: <code>fnm env</code>, <code>NVM_DIR</code> / <code>nvm.sh</code>, <code>vfox activate</code>, and <code>opt/node</code> / <code>brew --prefix node</code>. More than one match is reported as a conflict.</span><span class="zh"><code>./scripts/doctor.sh</code> 第 6 节会扫 <code>~/.zshrc</code>、<code>~/.zshrc.local</code> 和生成的 <code>node.sh</code>，找四类特征：<code>fnm env</code>、<code>NVM_DIR</code> / <code>nvm.sh</code>、<code>vfox activate</code>、<code>opt/node</code> / <code>brew --prefix node</code>。命中两类以上即报冲突。</span></p>
+<div class="ask"><span class="lb">fix</span>
+<span class="en">Pick one with <code>./scripts/node-mgr.sh &lt;choice&gt;</code>, then remove the other loader from where it lives: your own lines in <code>~/.zshrc.local</code>, or the template block in <code>~/.zshrc</code>. Open a new tab and re-run <code>./scripts/doctor.sh</code>; section 6 should say no conflict.</span><span class="zh">先用 <code>./scripts/node-mgr.sh &lt;选项&gt;</code> 定一套，再从它所在的位置删掉另一套：你自己写在 <code>~/.zshrc.local</code> 的行，或 <code>~/.zshrc</code> 里的模板块。新开 tab 后重跑 <code>./scripts/doctor.sh</code>，第 6 节应显示无冲突。</span>
+</div>
+
+<div class="pager mt-12 flex justify-between border-t border-ash-100/10 pt-6 text-sm text-ash-400"><a href="../guide/terminals.html">← <span class="en">Terminal coverage</span><span class="zh">终端覆盖</span></a><a href="../guide/semantic.html"><span class="en">Semantic</span><span class="zh">语义层</span> →</a></div>
+</article>
+</div></div>
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.1</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js?v=3.0.4"></script>
+</body>
+</html>

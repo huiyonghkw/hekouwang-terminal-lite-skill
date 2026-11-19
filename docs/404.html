@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+/* Sync lang before paint: ?lang -> localStorage -> navigator */
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+if(s==='zh')document.documentElement.classList.add('lang-zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>页面不存在 · 会勇禾口王·终端工作台</title>
+<meta name="description" content="404 — 这个地址没有对应页面。返回会勇禾口王·终端工作台首页、文档或主题画廊。">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/404.html">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="/hekouwang-terminal-lite-skill/feed.xml">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=4" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/hekouwang-terminal-lite-skill/images/apple-touch-icon.png?v=5">
+<link rel="shortcut icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3">
+<link rel="stylesheet" href="/hekouwang-terminal-lite-skill/assets/site.css?v=3.3.5">
+<style>
+  .nf { padding: 56px 0 80px; }
+  .nf-code { font-family: var(--mono); font-size: clamp(64px, 12vw, 112px); line-height: 1;
+             letter-spacing: -.04em; color: var(--accent2); margin: 0 0 18px; }
+  .nf h1 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 12px; }
+  .nf .lead { max-width: 62ch; }
+  .nf-suggest { margin: 20px 0 0; padding: 10px 14px; border-left: 2px solid var(--accent2);
+                background: rgba(212, 114, 58, .06); color: var(--text2); font-size: .95rem; }
+  .nf-suggest a { color: var(--accent2); }
+  .nf-try { margin: 10px 0 22px; font-family: var(--mono); font-size: .72rem; color: var(--text3); word-break: break-all; }
+  .nf-try code { color: var(--text2); }
+</style>
+
+<link rel="stylesheet" href="/hekouwang-terminal-lite-skill/assets/fonts.css">
+<link rel="stylesheet" href="/hekouwang-terminal-lite-skill/assets/tw.css">
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+<div id="prog"></div>
+<header id="site-nav" class="sticky top-0 border-b border-ash-100/10 bg-ink-950/85 backdrop-blur-xl z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="/hekouwang-terminal-lite-skill/index.html" class="brand-mark">
+      <img src="/hekouwang-terminal-lite-skill/images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="transition hover:text-ash-100" href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="transition hover:text-ash-100" href="/hekouwang-terminal-lite-skill/guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="/hekouwang-terminal-lite-skill/pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="/hekouwang-terminal-lite-skill/pricing.html" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"><span class="en">Buy</span><span class="zh">购买</span></a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="/hekouwang-terminal-lite-skill/guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="/hekouwang-terminal-lite-skill/pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+<div class="mx-auto max-w-6xl px-5 py-10 md:px-8">
+<article class="nf">
+  <div class="crumb mb-4 font-mono text-xs text-ash-500">404</div>
+  <div class="nf-code">404</div>
+  <h1 class="font-display text-3xl font-bold tracking-tight text-ash-100 md:text-4xl"><span class="en">This page does not exist</span><span class="zh">这个页面不存在</span></h1>
+  <p class="lead mt-3 text-lg text-ash-300"><span class="en">The address may be mistyped, or the page moved. Start from one of these:</span><span class="zh">地址可能敲错了，或页面已经搬走。从下面任选一个入口：</span></p>
+  <p id="nf-suggest" class="nf-suggest" hidden><span class="en">Did you mean:</span><span class="zh">你是不是要找：</span> <a id="nf-suggest-link"></a></p>
+  <p id="nf-try" class="nf-try" hidden><span class="en">You tried:</span><span class="zh">你访问的地址：</span> <code id="nf-try-path"></code></p>
+  <div class="pillgrid">
+    <a class="pill" href="/hekouwang-terminal-lite-skill/index.html"><div class="t"><span class="en">Home</span><span class="zh">返回首页</span></div><div class="d"><span class="en">Unified workbench story · free install · platform buy</span><span class="zh">统一工作台叙事 · 免费安装 · 平台购买</span></div></a>
+    <a class="pill" href="/hekouwang-terminal-lite-skill/pricing.html"><div class="t"><span class="en">Pricing</span><span class="zh">定价</span></div><div class="d"><span class="en">¥0 / ¥14.9/quarter / ¥2.99/call · capability matrix</span><span class="zh">¥0 / ¥14.9/季度 / ¥2.99/次 · 能力对照表</span></div></a>
+    <a class="pill" href="/hekouwang-terminal-lite-skill/guide/index.html"><div class="t"><span class="en">Docs</span><span class="zh">文档</span></div><div class="d"><span class="en">Install, themes, coverage, doctor, uninstall</span><span class="zh">安装、换肤、覆盖、体检、卸载</span></div></a>
+    <a class="pill" href="/hekouwang-terminal-lite-skill/themes/index.html"><div class="t"><span class="en">Theme gallery</span><span class="zh">主题画廊</span></div><div class="d"><span class="en">7 factory themes · 16 ANSI colors each</span><span class="zh">7 套出厂主题 · 每套 16 色</span></div></a>
+  </div>
+  <p><span class="en">Looking for the CLI index? <a href="/hekouwang-terminal-lite-skill/tools/index.html">Tools</a>. Changelog? <a href="/hekouwang-terminal-lite-skill/changelog.html">What changed</a>.</span><span class="zh">找脚本索引？去<a href="/hekouwang-terminal-lite-skill/tools/index.html">工具</a>。看更新？去<a href="/hekouwang-terminal-lite-skill/changelog.html">更新日志</a>。</span></p>
+</article>
+</div>
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.0</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="/hekouwang-terminal-lite-skill/guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="/hekouwang-terminal-lite-skill/pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="/hekouwang-terminal-lite-skill/assets/site.js?v=3.0.4"></script>
+<script>
+/* 404 helper: nearest-page suggestion + tried path. Text only via textContent (no innerHTML). */
+(function () {
+  var BASE = '/hekouwang-terminal-lite-skill';
+  var GUIDE = ['index', 'install', 'theme', 'terminals', 'semantic', 'doctor', 'node', 'uninstall'];
+  var tried = document.getElementById('nf-try');
+  var triedPath = document.getElementById('nf-try-path');
+  var box = document.getElementById('nf-suggest');
+  var link = document.getElementById('nf-suggest-link');
+
+  var raw = location.pathname || '/';
+  if (tried && triedPath) {
+    triedPath.textContent = raw;
+    tried.hidden = false;
+  }
+
+  function decode(seg) {
+    try { return decodeURIComponent(seg).toLowerCase(); } catch (e) { return seg.toLowerCase(); }
+  }
+
+  var path = raw;
+  if (path === BASE || path.indexOf(BASE + '/') === 0) path = path.slice(BASE.length) || '/';
+  var segs = path.split('/').filter(Boolean).map(decode);
+  if (segs[0] === 'docs') segs.shift();
+  if (segs.length && /^(index|404)\.html$/.test(segs[segs.length - 1])) segs.pop();
+
+  function resolve(list) {
+    if (!list.length) return null;
+    var a = list[0].replace(/\.html$/, '');
+    var b = (list[1] || '').replace(/\.html$/, '');
+    if (a === 'guide') return b && GUIDE.indexOf(b) >= 0 ? 'guide/' + b + '.html' : 'guide/index.html';
+    if (a === 'pricing') return 'pricing.html';
+    if (a === 'changelog') return 'changelog.html';
+    if (a === 'tools') return 'tools/index.html';
+    if (a === 'themes') return 'themes/index.html';
+    if (a === 'index') return 'index.html';
+    return null;
+  }
+
+  var target = resolve(segs);
+  if (!target || !box || !link) return;
+  var prefix = raw === BASE || raw.indexOf(BASE + '/') === 0 ? BASE : '';
+  link.setAttribute('href', prefix + '/' + target);
+  link.textContent = target;
+  box.hidden = false;
+})();
+</script>
+</body>
+</html>

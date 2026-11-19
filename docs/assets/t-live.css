@@ -1,0 +1,18 @@
+/* t-live.css — 由 scripts/gen-site-themes.py 产出，勿手改。
+   重生成：python3 scripts/gen-site-themes.py css
+   校验：  python3 scripts/gen-site-themes.py --check */
+
+[data-tlive="catppuccin-mocha"]{--t-bg:#1e1e2e;--t-fg:#cdd6f4;--t-cur:#fab387;--t-sel:#585b70;--t-a0:#45475a;--t-a1:#fc84a7;--t-a2:#9fe699;--t-a3:#fce1a6;--t-a4:#86b4ff;--t-a5:#fabfea;--t-a6:#88e4d6;--t-a7:#bac2de;--t-a8:#65697e;--t-a9:#ffabc0;--t-a10:#bdffb7;--t-a11:#fff8e7;--t-a12:#acccff;--t-a13:#ffe0f6;--t-a14:#a2feef;--t-a15:#d4dbf7}
+.t-dot[data-theme="catppuccin-mocha"]{background:#1e1e2e}
+[data-tlive="tokyo-night"]{--t-bg:#1a1b26;--t-fg:#c0caf5;--t-cur:#7dcfff;--t-sel:#2d395d;--t-a0:#15161e;--t-a1:#fb728d;--t-a2:#9ccf64;--t-a3:#e2ae62;--t-a4:#77a2fc;--t-a5:#bc98fb;--t-a6:#7dcfff;--t-a7:#a9b1d6;--t-a8:#5e6688;--t-a9:#ff98a8;--t-a10:#b4e87c;--t-a11:#fdc87b;--t-a12:#99baff;--t-a13:#cfb6ff;--t-a14:#b2e2ff;--t-a15:#c0caf5}
+.t-dot[data-theme="tokyo-night"]{background:#1a1b26}
+[data-tlive="gruvbox-dark"]{--t-bg:#282828;--t-fg:#ebdbb2;--t-cur:#fe8019;--t-sel:#504945;--t-a0:#282828;--t-a1:#ff4f41;--t-a2:#989700;--t-a3:#da9800;--t-a4:#539b9f;--t-a5:#cb729c;--t-a6:#639e66;--t-a7:#a89984;--t-a8:#928374;--t-a9:#ff826e;--t-a10:#b9bb00;--t-a11:#febc00;--t-a12:#88afa1;--t-a13:#e38da4;--t-a14:#8ac176;--t-a15:#ebdbb2}
+.t-dot[data-theme="gruvbox-dark"]{background:#282828}
+[data-tlive="ember"]{--t-bg:#19191a;--t-fg:#f4f2eb;--t-cur:#e08a5f;--t-sel:#514b45;--t-a0:#4d4742;--t-a1:#d4765c;--t-a2:#29a152;--t-a3:#bd851d;--t-a4:#5697c1;--t-a5:#a080d2;--t-a6:#2ba195;--t-a7:#d9d5cb;--t-a8:#958a80;--t-a9:#eea996;--t-a10:#4ecd77;--t-a11:#e2b25e;--t-a12:#8dc0e3;--t-a13:#c6afed;--t-a14:#43cfc1;--t-a15:#f4f2eb}
+.t-dot[data-theme="ember"]{background:#19191a}
+[data-tlive="voltage"]{--t-bg:#050508;--t-fg:#e8e8ed;--t-cur:#00d4aa;--t-sel:#2d2d41;--t-a0:#3f3c4c;--t-a1:#fa4861;--t-a2:#00a148;--t-a3:#d57200;--t-a4:#308df4;--t-a5:#9175ff;--t-a6:#009aad;--t-a7:#cdcbe0;--t-a8:#6f6c83;--t-a9:#fd99a7;--t-a10:#00d25e;--t-a11:#f4a554;--t-a12:#82baf8;--t-a13:#bbaaff;--t-a14:#00c8e0;--t-a15:#e8e8ed}
+.t-dot[data-theme="voltage"]{background:#050508}
+[data-tlive="parchment"]{--t-bg:#faf9f5;--t-fg:#1a1a18;--t-cur:#b85433;--t-sel:#d9d4c8;--t-a0:#a59b91;--t-a1:#a54930;--t-a2:#087434;--t-a3:#835f1d;--t-a4:#266b97;--t-a5:#7c42cd;--t-a6:#05736b;--t-a7:#6e645a;--t-a8:#86796d;--t-a9:#723221;--t-a10:#236436;--t-a11:#5a4214;--t-a12:#1a4a67;--t-a13:#572c92;--t-a14:#074f49;--t-a15:#312d28}
+.t-dot[data-theme="parchment"]{background:#faf9f5}
+[data-tlive="ledger"]{--t-bg:#ffffff;--t-fg:#202124;--t-cur:#1a73e8;--t-sel:#cedaef;--t-a0:#9da1a8;--t-a1:#d30010;--t-a2:#007a31;--t-a3:#995a00;--t-a4:#0b65d0;--t-a5:#9425ec;--t-a6:#00757b;--t-a7:#656972;--t-a8:#7a7f89;--t-a9:#96030a;--t-a10:#005621;--t-a11:#6b3e01;--t-a12:#094791;--t-a13:#6b00b5;--t-a14:#005257;--t-a15:#2f3135}
+.t-dot[data-theme="ledger"]{background:#ffffff}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+document.documentElement.classList.toggle('lang-zh',s==='zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>定价 · 会勇禾口王·终端工作台</title>
+<meta name="description" content="免费 ¥0 · SkillPay ¥14.9/季度（约 ¥59.6/年）· SkillHub ¥2.99/次。能力对照表、场景故事、平台购买。不自动续费；试用 0；约 20 次 ≈ 一年。">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/pricing.html">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="会勇禾口王·终端工作台">
+<meta property="og:title" content="定价 · 会勇禾口王·终端工作台">
+<meta property="og:description" content="免费 ¥0 · SkillPay ¥14.9/季度（约 ¥59.6/年）· SkillHub ¥2.99/次。能力对照表、场景故事、平台购买。不自动续费；试用 0；约 20 次 ≈ 一年。">
+<meta property="og:url" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/pricing.html">
+<meta property="og:image" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "升级会不会覆盖我现有的配置？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不会。unlock.sh 把付费包解压覆盖进 lite 目录，先快照备份、失败自动回滚；~/.zshrc 先备份进 ~/.hekouwang-terminal-backups/，自定义 alias / PATH 由 migrate.sh 搬进 ~/.zshrc.local——接管而不是覆盖。" }
+    },
+    {
+      "@type": "Question",
+      "name": "到期后会怎样？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不自动续费。购买之日起一年内可免费获取更新并在群内答疑；一年后已安装的版本可继续无限期使用，只是不再提供新版本与答疑。续期与否不影响你已经拿到的任何东西。" }
+    },
+    {
+      "@type": "Question",
+      "name": "SkillHub 按次怎么算？",
+      "acceptedAnswer": { "@type": "Answer", "text": "¥2.99/次，无免费次数，约 20 次 ≈ SkillPay 一年。只是偶尔要主题生成 / 光学处方时适合按次走。" }
+    },
+    {
+      "@type": "Question",
+      "name": "有试用或退款吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "试用 0——免费 Lite 版本身就是试用。购买与退款遵循对应平台（支付宝 SkillPay / 腾讯 SkillHub）的平台规则。" }
+    },
+    {
+      "@type": "Question",
+      "name": "自己建的色板/主题更新后会被覆盖吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不会。你自己新建的 palettes/<名字>.py 不会被覆盖，生成器扫目录自动发现。改过色板或自己加过主题，git pull 前先 git stash，拉完再 git stash pop。" }
+    },
+    {
+      "@type": "Question",
+      "name": "买一次能装几台机器？",
+      "acceptedAnswer": { "@type": "Answer", "text": "你本人拥有或管理的设备不限台数，个人与商业用途都行。一份授权对应一位自然人；公司或团队按人数购买。" }
+    },
+    {
+      "@type": "Question",
+      "name": "导入的社区主题算产品内容吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不算。import.sh 导入的配色只在你机器上，不进产品包，也不会随更新分发。" }
+    }
+  ]
+}
+</script>
+<link rel="icon" href="favicon.svg?v=4" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=5">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/tw.css">
+<link rel="stylesheet" href="assets/site.css?v=3.3.5">
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+
+<div id="prog"></div>
+
+<header id="site-nav" class="fixed inset-x-0 top-0 border-b border-transparent z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="index.html" class="brand-mark">
+      <img src="images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="transition hover:text-ash-100" href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="transition hover:text-ash-100" href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="text-ash-100" href="pricing.html" aria-current="page"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="pricing.html" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"><span class="en">Buy</span><span class="zh">购买</span></a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-28">
+  <section class="relative overflow-hidden bg-ember-radial pb-16">
+    <div class="pointer-events-none absolute inset-0 bg-grid-fade bg-grid opacity-30"></div>
+    <div class="relative mx-auto max-w-6xl px-5 md:px-8">
+      <p class="font-mono text-xs tracking-[0.16em] text-ember-400 uppercase"><span class="en">pricing</span><span class="zh">定价</span></p>
+      <h1 class="mt-3 max-w-2xl font-display text-4xl font-extrabold tracking-tight text-ash-100 md:text-5xl">
+        <span class="en">Free is complete.<br>Pro is the workbench.</span>
+        <span class="zh">免费版完整可用。<br>专业版才是工作台。</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-ash-300 leading-relaxed">
+        <span class="en">Buy only on platforms. No WeChat zip as the main 3.0 path.</span>
+        <span class="zh">购买只走平台。3.0 不以微信发 zip 为主路径。</span>
+      </p>
+      <p class="mt-4 font-mono text-xs text-ash-500"><span class="zh">先免费装？跑 <code>./scripts/doctor.sh --status</code>，标 paid 的就是你缺的</span><span class="en">Install free first? Run <code>./scripts/doctor.sh --status</code> — whatever reads paid-only is what you are missing.</span></p>
+
+      <div id="plans" class="mt-12 grid gap-4 lg:grid-cols-3">
+        <div class="flex flex-col border border-ash-100/10 bg-ink-850/60 p-6 md:p-7">
+          <p class="font-mono text-[0.65rem] tracking-[0.14em] text-ash-400 uppercase"><span class="en">Free · Lite</span><span class="zh">免费版 · Lite</span></p>
+          <p class="mt-4 font-display text-4xl font-bold text-ash-100">¥0 <span class="text-base font-medium text-ash-500"><span class="en">forever</span><span class="zh">永久</span></span></p>
+          <p class="mt-3 flex-1 text-sm text-ash-400"><span class="en">Configured iTerm2 + basic Skill. MIT.</span><span class="zh">配好的 iTerm2 + 基础 Skill。MIT。</span></p>
+          <a href="guide/install.html" class="mt-8 inline-flex rounded-full bg-ash-100 px-4 py-2.5 text-center text-sm font-semibold text-ink-950 hover:bg-white"><span class="en">Install free →</span><span class="zh">安装免费版 →</span></a>
+        </div>
+        <div class="relative flex flex-col border border-ember-500/40 bg-gradient-to-b from-ember-500/15 to-ink-850/80 p-6 shadow-glow md:p-7">
+          <p class="absolute -top-3 left-6 rounded-full bg-ember-500 px-2.5 py-0.5 font-mono text-[0.6rem] font-semibold tracking-wide text-ink-950 uppercase"><span class="en">recommended</span><span class="zh">推荐</span></p>
+          <p class="font-mono text-[0.65rem] tracking-[0.14em] text-ember-300 uppercase">SkillPay</p>
+          <p class="mt-4 font-display text-4xl font-bold text-ash-100">¥14.9 <span class="text-base font-medium text-ash-400"><span class="en">/ quarter</span><span class="zh">/ 季度</span></span></p>
+          <p class="mt-3 flex-1 text-sm text-ash-300"><span class="en">Quarterly · <b>no auto-renew</b> · trial 0. Primary Pro path.</span><span class="zh">按季度 · <b>不自动续费</b> · 试用 0。专业版主路径。</span></p>
+          <a href="https://skillpay.alipay.com/shelf/product?productId=P0806000213867166&amp;merchantCode=huiyonghkw" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex rounded-full bg-ember-500 px-4 py-2.5 text-center text-sm font-semibold text-ink-950 hover:bg-ember-400"><span class="en">Buy on SkillPay →</span><span class="zh">SkillPay 购买说明 →</span></a>
+        </div>
+        <div class="flex flex-col border border-ash-100/10 bg-ink-850/60 p-6 md:p-7">
+          <p class="font-mono text-[0.65rem] tracking-[0.14em] text-ash-400 uppercase">SkillHub</p>
+          <p class="mt-4 font-display text-4xl font-bold text-ash-100">¥2.99 <span class="text-base font-medium text-ash-500"><span class="en">/ call</span><span class="zh">/ 次</span></span></p>
+          <p class="mt-3 flex-1 text-sm text-ash-400"><span class="en">Theme gen / optical Rx. ~20 calls ≈ one SkillPay year.</span><span class="zh">主题生成 / 光学处方。约 20 次 ≈ SkillPay 一年。</span></p>
+          <a href="https://skillhub.cn/" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex rounded-full border border-ember-400/35 bg-ember-500/10 px-4 py-2.5 text-center text-sm font-semibold text-ember-300 hover:bg-ember-500/20"><span class="en">Open SkillHub →</span><span class="zh">打开 SkillHub →</span></a>
+        </div>
+      </div>
+
+      <div class="mt-6 border border-ash-100/10 bg-ink-850/40 px-5 py-4 text-sm text-ash-400">
+        <span class="en"><b class="text-ash-200">Billing:</b> no auto-renew. SkillHub has no free calls. Free Lite ≠ Pro entitlements. Both channels link to their live product pages.</span>
+        <span class="zh"><b class="text-ash-200">计费说明：</b>不自动续费。SkillHub 无免费次数。免费 Lite 不替代专业版权益。双渠道均直连已上架商品页。</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare" class="border-t border-ash-100/10 bg-ink-900 py-20" data-reveal>
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <h2 class="font-display text-3xl font-bold tracking-tight text-ash-100"><span class="en">Capability matrix</span><span class="zh">能力对照表</span></h2>
+      <div class="mt-8 overflow-x-auto border border-ash-100/10">
+        <table class="cap-table w-full min-w-[40rem] text-sm">
+          <thead>
+            <tr>
+              <th><span class="en">Capability</span><span class="zh">能力</span></th>
+              <th><span class="en">Free</span><span class="zh">免费版</span></th>
+              <th><span class="en">Pro</span><span class="zh">专业版</span></th>
+            </tr>
+          </thead>
+          <tbody class="text-ash-300">
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Terminal coverage</span><span class="zh">终端覆盖</span></td>
+              <td class="y"><span class="en">iTerm2 only (3 community themes)</span><span class="zh">仅 iTerm2（3 套社区主题）</span></td>
+              <td class="v"><span class="en">+ Ghostty / Terminal.app (7/7); Warp / Tabby (5/7); cmux sidebar</span><span class="zh">+ Ghostty / Terminal.app（7/7）；Warp / Tabby（5/7）；cmux 侧栏</span></td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Themes</span><span class="zh">主题</span></td>
+              <td class="y">tokyo-night / gruvbox-dark / catppuccin-mocha</td>
+              <td class="v"><span class="en">+ 4 brand (+ importer)</span><span class="zh">+ 4 套品牌（含 2 亮色）+ 导入器</span></td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Ecosystem same colors</span><span class="zh">生态同色</span></td>
+              <td class="n"><span class="en">limited</span><span class="zh">有限</span></td>
+              <td class="v">bat / fzf / eza / delta / tmux / VS Code</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Optical calibration</span><span class="zh">光学校准</span></td>
+              <td class="n">—</td>
+              <td class="v"><span class="en">4 fonts × 3 densities · font.sh</span><span class="zh">4 字体档 × 3 密度 · font.sh</span></td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Scene engine</span><span class="zh">场景引擎</span></td>
+              <td class="n">—</td>
+              <td class="v"><span class="en">5 scenes + privacy · scene.sh</span><span class="zh">5 场景 + 隐私 · scene.sh</span></td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Project workspaces</span><span class="zh">项目工作区</span></td>
+              <td class="n">—</td>
+              <td class="v">workspace.sh</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Palette deriver</span><span class="zh">色板推导</span></td>
+              <td class="n">—</td>
+              <td class="v">palette.sh</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Follow system light/dark</span><span class="zh">跟随系统深浅色</span></td>
+              <td class="n">—</td>
+              <td class="v">theme.sh --auto</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100">Agent Skill</td>
+              <td class="y"><span class="en">compact protocol</span><span class="zh">精简协议</span></td>
+              <td class="v"><span class="en">full protocol + paid-section</span><span class="zh">完整协议 + paid-section</span></td>
+            </tr>
+            <tr>
+              <td class="font-medium text-ash-100"><span class="en">Reference docs</span><span class="zh">参考文档</span></td>
+              <td class="y"><span class="en">7 basic packs (shortcuts / tips / zshrc explained, …)</span><span class="zh">7 组基础参考（快捷键 / 技巧 / zshrc 详解 等）</span></td>
+              <td class="v"><span class="en">paid know-how pack</span><span class="zh">付费 know-how</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-sm text-ash-500"><span class="en">Coverage is always a matrix — never “six terminals at full.”</span><span class="zh">覆盖一律写矩阵 —— 禁止「终端覆盖全量」。</span></p>
+    </div>
+  </section>
+
+  <section id="faq" class="border-t border-ash-100/10 bg-ink-950 py-20" data-reveal>
+    <div class="mx-auto max-w-4xl px-5 md:px-8">
+      <h2 class="font-display text-3xl font-bold text-ash-100"><span class="en">FAQ</span><span class="zh">常见问题</span></h2>
+      <dl class="mt-8 space-y-8">
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">Will upgrading overwrite my existing config?</span><span class="zh">升级会不会覆盖我现有的配置？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">No. <code>unlock.sh</code> unpacks the paid zip over the lite directory with a snapshot first — if a step fails it rolls back automatically. <code>~/.zshrc</code> is backed up to <code>~/.hekouwang-terminal-backups/</code>, and your own aliases / PATH are moved into <code>~/.zshrc.local</code> by <code>migrate.sh</code>. It takes over instead of overwriting.</span><span class="zh">不会。<code>unlock.sh</code> 把付费包解压覆盖进 lite 目录，先快照备份、失败自动回滚；<code>~/.zshrc</code> 先备份进 <code>~/.hekouwang-terminal-backups/</code>，自定义 alias / PATH 由 <code>migrate.sh</code> 搬进 <code>~/.zshrc.local</code>——接管而不是覆盖。</span></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">What happens when the license expires?</span><span class="zh">到期后会怎样？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">No auto-renew. For one year from purchase you get free updates and group Q&amp;A. After that, what you already installed keeps working indefinitely — you just stop receiving new versions and Q&amp;A. Renewing or not never takes away anything you already have.</span><span class="zh">不自动续费。购买之日起一年内可免费获取更新并在群内答疑；一年后已安装的版本可继续无限期使用，只是不再提供新版本与答疑。续期与否不影响你已经拿到的任何东西。</span></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">How does SkillHub per-call billing work?</span><span class="zh">SkillHub 按次怎么算？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">¥2.99 per call, no free calls. Roughly 20 calls ≈ one year of SkillPay. Use it when you only need theme generation / optical prescriptions occasionally.</span><span class="zh">¥2.99/次，无免费次数，约 20 次 ≈ SkillPay 一年。只是偶尔要主题生成 / 光学处方时适合按次走。</span></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">Trial or refunds?</span><span class="zh">有试用或退款吗？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">Trial is 0 — the free lite build is the trial. Purchases and refunds follow the rules of the platform you bought from (Alipay SkillPay / Tencent SkillHub).</span><span class="zh">试用 0——免费 Lite 版本身就是试用。购买与退款遵循对应平台（支付宝 SkillPay / 腾讯 SkillHub）的平台规则。</span></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">Will an update overwrite palettes or themes I made?</span><span class="zh">自己建的色板/主题更新后会被覆盖吗？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">No. Your own <code>palettes/&lt;name&gt;.py</code> is not overwritten — the generator discovers it by scanning the folder. If you edited palettes, <code>git stash</code> before <code>git pull</code> and <code>git stash pop</code> after.</span><span class="zh">不会。你自己新建的 <code>palettes/&lt;名字&gt;.py</code> 不会被覆盖，生成器扫目录自动发现。改过色板或自己加过主题，<code>git pull</code> 前先 <code>git stash</code>，拉完再 <code>git stash pop</code>。</span></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">How many machines can one purchase cover?</span><span class="zh">买一次能装几台机器？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">As many devices as you own or manage — no machine limit, personal or commercial use. One license covers one person; companies and teams buy by headcount.</span><span class="zh">你本人拥有或管理的设备不限台数，个人与商业用途都行。一份授权对应一位自然人；公司或团队按人数购买。</span></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ash-100"><span class="en">Are imported community themes part of the product?</span><span class="zh">导入的社区主题算产品内容吗？</span></dt>
+          <dd class="mt-2 text-sm leading-relaxed text-ash-400"><span class="en">No. Colors imported with <code>import.sh</code> stay on your machine only — they do not enter the product package and are not distributed with updates.</span><span class="zh">不算。<code>import.sh</code> 导入的配色只在你机器上，不进产品包，也不会随更新分发。</span></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="stories" class="border-t border-ash-100/10 bg-ink-950 py-20" data-reveal>
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <h2 class="font-display text-3xl font-bold text-ash-100"><span class="en">Scene stories</span><span class="zh">场景故事</span></h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <article class="border border-ash-100/10 bg-ink-850/40 p-6">
+          <p class="font-display text-lg font-semibold text-ash-100"><span class="en">Ready to record?</span><span class="zh">录屏准备好了吗？</span></p>
+          <p class="mt-2 text-sm text-ash-500"><span class="en">Manual window / font / path tweaks.</span><span class="zh">手动调窗口、字号、藏路径。</span></p>
+          <p class="mt-4 font-mono text-sm text-ember-300"><code>scene.sh apply record</code></p>
+        </article>
+        <article class="border border-ash-100/10 bg-ink-850/40 p-6">
+          <p class="font-display text-lg font-semibold text-ash-100"><span class="en">Ghostty still default-ugly?</span><span class="zh">换终端还要重配色？</span></p>
+          <p class="mt-2 text-sm text-ash-500"><span class="en">Each app has its own theme file.</span><span class="zh">每个 App 各抄一份主题。</span></p>
+          <p class="mt-4 font-mono text-sm text-ember-300"><code>theme.sh</code></p>
+        </article>
+        <article class="border border-ash-100/10 bg-ink-850/40 p-6">
+          <p class="font-display text-lg font-semibold text-ash-100"><span class="en">Which tab is which Agent?</span><span class="zh">哪个 tab 是哪个 Agent？</span></p>
+          <p class="mt-2 text-sm text-ash-500"><span class="en">Identical tabs, no project cue.</span><span class="zh">标签长得一样，看不出项目。</span></p>
+          <p class="mt-4 font-mono text-sm text-ember-300"><code>workspace.sh</code></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="optical" class="border-t border-ash-100/10 bg-ink-900 py-16" data-reveal>
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <h2 class="font-display text-2xl font-bold text-ash-100"><span class="en">Optical visualization</span><span class="zh">光学可视化</span></h2>
+      <figure class="mt-6 overflow-hidden border border-ash-100/10">
+        <img src="images/font-check-12.webp?v=14" width="2369" height="360" loading="lazy" decoding="async" class="w-full" alt="font.sh optical probe">
+        <figcaption class="px-4 py-3 font-mono text-[0.65rem] text-ash-500">
+          <span class="en">font.sh probe · dedicated before/after collage TBD</span>
+          <span class="zh">font.sh 抽样 · 专用「校准前后」拼图待实拍</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="buy" class="border-t border-ash-100/10 bg-ink-950 py-20" data-reveal>
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <h2 class="font-display text-3xl font-bold text-ash-100"><span class="en">Buy on platforms</span><span class="zh">在平台购买</span></h2>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="https://skillpay.alipay.com/shelf/product?productId=P0806000213867166&amp;merchantCode=huiyonghkw" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full bg-ember-500 px-5 py-2.5 text-sm font-semibold text-ink-950 hover:bg-ember-400"><span class="en">SkillPay · ¥14.9/quarter →</span><span class="zh">SkillPay · ¥14.9/季度 →</span></a>
+        <a href="https://skillhub.cn/" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full border border-ember-400/40 bg-ember-500/10 px-5 py-2.5 text-sm font-semibold text-ember-300 hover:bg-ember-500/20"><span class="en">SkillHub · ¥2.99/call →</span><span class="zh">SkillHub · ¥2.99/次 →</span></a>
+        <a href="guide/install.html" class="inline-flex rounded-full border border-ash-100/15 px-5 py-2.5 text-sm font-semibold text-ash-200 hover:border-ash-100/30"><span class="en">Install free first →</span><span class="zh">先装免费版 →</span></a>
+      </div>
+      <div class="mt-12 flex justify-between border-t border-ash-100/10 pt-6 text-sm text-ash-400">
+        <a class="hover:text-ash-100" href="index.html">← <span class="en">Home</span><span class="zh">首页</span></a>
+        <a class="hover:text-ash-100" href="guide/install.html"><span class="en">Install</span><span class="zh">安装</span> →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.1</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=3.0.4"></script>
+</body>
+</html>

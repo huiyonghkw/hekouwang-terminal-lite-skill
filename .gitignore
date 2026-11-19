@@ -1,0 +1,111 @@
+.DS_Store
+
+# Python 字节码缓存：生成器/色板是当模块 import 的，跑一次就会留下
+# __pycache__。它跟着 Python 版本走（.cpython-314.pyc），换机器/换版本就失效，
+# 而且删掉主题后旧 .pyc 还会赖着，绝不该进仓库。
+__pycache__/
+*.py[cod]
+
+# 用户自己导入的主题（./scripts/import.sh 生成）—— 跟 .zshrc.local 同性质，属个人状态不属产品。
+# ⛔ 别跟踪：否则我本地测试导入的主题会跟着发版走进买家的包里；
+#    连带它生成的 <主题>.json / ghostty/ warp/ ecosystem/ 也是一次性的。
+config/themes/palettes/imported.py
+# 上面两套导入主题（claude-code-light / rose-pine）的生成物与 imported.py 同性质，
+# 也是一次性的个人状态，别跟踪；逐条显式列出，避免误伤品牌/社区主题。
+config/themes/claude-code-light.json
+config/themes/rose-pine.json
+config/themes/ghostty/hekouwang-claude-code-light
+config/themes/ghostty/hekouwang-claude-code-light-p3
+config/themes/ghostty/hekouwang-rose-pine
+config/themes/ghostty/hekouwang-rose-pine-p3
+config/themes/warp/claude_code_light.yaml
+config/themes/warp/rose_pine.yaml
+config/themes/ecosystem/claude-code-light/
+config/themes/ecosystem/rose-pine/
+config/themes/ecosystem/vscode/themes/hekouwang-claude-code-light-color-theme.json
+config/themes/ecosystem/vscode/themes/hekouwang-rose-pine-color-theme.json
+tests/golden/claude-code-light.card.txt
+tests/golden/rose-pine.card.txt
+
+# 只在本机存在的工作目录，导出到子仓后仍要忽略。
+# ⛔ 规则必须住在母版：导出会用本文件**覆盖**子仓的 .gitignore，
+#    写在子仓里的一条会被下一次导出静默冲掉（2026-11-09 实测，launch/ 当场变待提交）。
+launch/
+.workbuddy/
+
+# 本地计划与草稿：含付费边界、定价、删仓步骤等内部策略，不进公开仓。
+# plans/ 自带独立 git 仓库（无远程），父仓库继续忽略，避免嵌套仓库告警。
+plans/
+
+# 已归档的旧分档子仓（OSS / PRO）连同各自 .git 一起留档，不进母版历史。
+archive/
+
+# 标准结构四件：public 工作树、edition 专业版构建输入、dist 构建产物。
+# public/ 是 lite 孤儿分支 worktree（不能与 main 共用历史）；edition/ 是独立本地仓库。
+# 两者都不进主仓库。详见 STRUCTURE.md。
+public/
+edition/
+dist/
+
+# 每个服务一个独立私有仓；父仓库不跟踪，避免嵌套仓告警。
+services/*/
+!services/README.md
+
+# Agent 本地配置（权限、会话设置），只存本机
+.qwen/
+
+# Playwright CLI 会话产物
+.playwright-cli/
+
+# T1 overlay：dev-overlay-from-edition.sh 叠回主仓的 Pro 路径（勿提交）
+.hkw-edition-overlay
+config/themes/palettes/brand.py
+config/themes/generators/pro.py
+config/font.conf
+config/typography/
+config/scenes/
+config/themes/palettes/_derive.py
+config/themes/palettes/_import.py
+config/themes/_apply_pro.sh
+config/themes/_workspace_pro.sh
+scripts/import.sh
+scripts/palette.sh
+scripts/workspace.sh
+scripts/font.sh
+scripts/scene.sh
+scripts/apply-appendix-c.sh
+scripts/capture-compare.sh
+scripts/capture-font-check.sh
+README.paid.md
+README.paid.en.md
+references/terminals.md
+references/terminals.zh-CN.md
+references/theme-derivation.md
+references/theme-derivation.zh-CN.md
+references/optical-calibration.md
+references/optical-calibration.zh-CN.md
+references/scenes.md
+references/scenes.zh-CN.md
+references/ecosystem.md
+references/ecosystem.zh-CN.md
+references/ai-workflows.md
+references/ai-workflows.zh-CN.md
+references/tips-paid.md
+references/tips-paid.zh-CN.md
+references/looks.md
+references/looks.zh-CN.md
+lib/i18n/en/font.sh
+lib/i18n/zh/font.sh
+lib/i18n/en/scene.sh
+lib/i18n/zh/scene.sh
+docs/速查卡.html
+docs/速查卡.pdf
+config/themes/ghostty/
+config/themes/warp/
+config/themes/ecosystem/
+tests/golden/
+config/themes/ember.json
+config/themes/voltage.json
+config/themes/parchment.json
+config/themes/ledger.json
+LICENSE-PRO.txt

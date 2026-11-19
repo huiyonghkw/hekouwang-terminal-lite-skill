@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+/* Sync lang before paint: ?lang -> localStorage -> navigator */
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+if(s==='zh')document.documentElement.classList.add('lang-zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semantic layer · 会勇禾口王·终端工作台</title>
+<meta name="description" content="Cmd-click path:line, Git SHA, localhost:port — Semantic Interaction Layer v1.">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/semantic.html">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="../feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="会勇禾口王·终端工作台">
+<meta property="og:title" content="Semantic layer · 会勇禾口王·终端工作台">
+<meta property="og:description" content="Cmd-click path:line, Git SHA, localhost:port — Semantic Interaction Layer v1.">
+<meta property="og:url" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/semantic.html">
+<meta property="og:image" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "文档",
+      "item": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "语义交互层",
+      "item": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/guide/semantic.html"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="../favicon.svg?v=4" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png?v=5">
+<link rel="shortcut icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3">
+
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/tw.css">
+<link rel="stylesheet" href="../assets/site.css?v=3.3.5">
+<script defer src="../assets/toc.js"></script>
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+<div id="prog"></div>
+<header id="site-nav" class="sticky top-0 border-b border-ash-100/10 bg-ink-950/85 backdrop-blur-xl z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="../index.html" class="brand-mark">
+      <img src="../images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="transition hover:text-ash-100" href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="text-ash-100" href="../guide/index.html" aria-current="page"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="../pricing.html" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"><span class="en">Buy</span><span class="zh">购买</span></a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+<div class="mx-auto max-w-6xl"><div class="docgrid mx-auto grid max-w-6xl gap-10 px-5 py-10 md:grid-cols-[220px_1fr] md:px-8 md:py-14">
+<aside class="side hidden text-sm text-ash-400 md:block" aria-label="Docs">
+<style>.side a{display:block;padding:.35rem 0;color:#9a8d80}.side a:hover{color:#f3eee6}.side a[aria-current=page]{color:#e8915a}.side .st{font-family:IBM Plex Mono,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#6f655c;margin:1rem 0 .4rem}.side .grp{margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(243,238,230,.08)}</style>
+  <div class="st"><span class="en">Guide</span><span class="zh">指南</span></div>
+  <a href="../guide/index.html"><span class="en">Intro</span><span class="zh">简介</span></a>
+  <a href="../guide/install.html"><span class="en">Install</span><span class="zh">安装</span></a>
+  <a href="../guide/theme.html"><span class="en">Themes &amp; auto</span><span class="zh">换肤与跟随</span></a>
+  <a href="../guide/terminals.html"><span class="en">Terminal coverage</span><span class="zh">终端覆盖</span></a>
+  <a href="../guide/doctor.html"><span class="en">Doctor</span><span class="zh">体检</span></a>
+  <a href="../guide/uninstall.html"><span class="en">Uninstall</span><span class="zh">卸载</span></a>
+  <div class="grp">
+    <div class="st"><span class="en">Also</span><span class="zh">另见</span></div>
+    <a href="../tools/index.html"><span class="en">CLI index</span><span class="zh">脚本索引</span></a>
+    <a href="../themes/index.html"><span class="en">Theme gallery</span><span class="zh">主题画廊</span></a>
+    <a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+    <a href="../changelog.html"><span class="en">Changelog</span><span class="zh">更新日志</span></a>
+  </div>
+</aside>
+<article class="doc prose-hkw min-w-0">
+<div class="crumb mb-4 font-mono text-xs text-ash-500"><a href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a> · <a href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a> · <span class="en">Semantic layer</span><span class="zh">语义交互层</span></div>
+<h1 class="font-display text-3xl font-bold tracking-tight text-ash-100 md:text-4xl"><span class="en">Semantic Interaction Layer</span><span class="zh">语义交互层</span></h1>
+<p class="lead mt-3 text-lg text-ash-300"><span class="en">Click paths, SHAs, and ports — not just prettier highlights.</span><span class="zh">点路径、SHA、端口 —— 不只是更好看的高亮。</span></p>
+
+<div class="h2sub mt-2 font-mono text-xs tracking-wide text-ash-500">v1 · Cmd-click · Smart Selection · Semantic History</div>
+<p><span class="en">Triggers already color <code>ERROR</code> / <code>WARN</code> / <code>SUCCESS</code>. The semantic layer adds the next step: <b>open or act on</b> the string under the cursor. It ships with every iTerm2 profile from this skill (free and paid) — same delivery path as Triggers.</span><span class="zh">Triggers 已经给 <code>ERROR</code> / <code>WARN</code> / <code>SUCCESS</code> 上色。语义层补的是下一步：对光标下的字符串<strong>点开或执行动作</strong>。随本技能每一份 iTerm2 Profile 交付（Lite 版与专业版都有）—— 和 Triggers 同一条交付路径。</span></p>
+
+<h2><span class="en">Try it in 30 seconds</span><span class="zh">30 秒试一遍</span></h2>
+<div class="term term-chrome my-5 overflow-hidden rounded-sm"><div class="dots flex items-center gap-1.5 border-b border-ash-100/5 px-4 py-2.5"><i></i><i></i><i></i><span>semantic</span></div>
+<pre class="sc"><span class="p">$</span> <span class="o">./scripts/theme.sh</span> <span class="cm"># <span class="en">redeploy current theme if you just upgraded</span><span class="zh">刚升级就先重部署当前主题</span></span>
+<span class="cm"># <span class="en">Then Cmd+T — Smart Selection only applies to new tabs</span><span class="zh">然后 Cmd+T —— Smart Selection 只对新 tab 生效</span></span>
+<span class="p">$</span> <span class="o">echo</span> src/app.ts:42
+<span class="p">$</span> <span class="o">echo</span> a1b2c3d
+<span class="p">$</span> <span class="o">echo</span> localhost:3000</pre></div>
+<ul>
+<li><span class="en"><b>Cmd-click</b> <code>src/app.ts:42</code> → opens in your best local editor (Cursor / VS Code / …).</span><span class="zh"><b>Cmd-click</b> <code>src/app.ts:42</code> → 用本机最佳编辑器打开（Cursor / VS Code …）。</span></li>
+<li><span class="en"><b>Cmd-click</b> a Git SHA → runs <code>git show --stat</code> (right-click also offers Copy).</span><span class="zh"><b>Cmd-click</b> Git SHA → 跑 <code>git show --stat</code>（右键还可 Copy）。</span></li>
+<li><span class="en"><b>Cmd-click</b> <code>localhost:3000</code> → opens the browser.</span><span class="zh"><b>Cmd-click</b> <code>localhost:3000</code> → 打开浏览器。</span></li>
+<li><span class="en"><b>Quad-click</b> selects the whole semantic span (Smart Selection).</span><span class="zh"><b>四击</b>按 Smart Selection 选中整段语义串。</span></li>
+</ul>
+
+<h2><span class="en">What matches</span><span class="zh">匹配什么</span></h2>
+<div class="tablewrap"><table>
+<thead><tr><th><span class="en">Match</span><span class="zh">匹配</span></th><th><span class="en">First action (Cmd-click)</span><span class="zh">第一条动作（Cmd-click）</span></th><th><span class="en">Also in menu</span><span class="zh">右键还可</span></th></tr></thead>
+<tbody>
+<tr><td><code>path/file.ext:42</code> · <code>:42:8</code></td><td><span class="en">Open at line</span><span class="zh">打开到行</span></td><td>Copy path:line</td></tr>
+<tr><td>Git SHA <code>[0-9a-f]{7,40}</code></td><td><code>git show --stat</code></td><td>Copy SHA</td></tr>
+<tr><td><code>localhost:3xxx</code> · <code>127.0.0.1:…</code></td><td><span class="en">Open in browser</span><span class="zh">浏览器打开</span></td><td>Copy host:port</td></tr>
+</tbody></table></div>
+<p><span class="en">Stock iTerm2 rules (Paths, HTTP URL, email, …) stay in the same list. Setting <code>Smart Selection Rules</code> replaces inheritance, so the generator embeds the factory set plus these product rules.</span><span class="zh">iTerm2 出厂规则（Paths、HTTP URL、邮箱…）留在同一份列表里。写了 <code>Smart Selection Rules</code> 会整表替换继承，所以生成器必须自带出厂组 + 产品规则。</span></p>
+
+<div class="ask"><span class="lb">iTerm2 only</span>
+<span class="en">Semantic layer uses iTerm2 Smart Selection + Semantic History. Ghostty / Warp / cmux / Tabby / Terminal.app have no equivalent — same honesty as Triggers. Paid multi-terminal sync is about palette look, not clickable semantics.</span><span class="zh">语义层依赖 iTerm2 的 Smart Selection + Semantic History。Ghostty / Warp / cmux / Tabby / 自带终端没有对应物 —— 和 Triggers 同一条诚实边界。付费多终端同步管的是配色观感，不是可点语义。</span>
+</div>
+
+<h2><span class="en">If Cmd-click does nothing</span><span class="zh">Cmd-click 没反应时</span></h2>
+<ol>
+<li><span class="en">Open a <b>new tab</b> after <code>./scripts/theme.sh</code> (old sessions keep the old rule set).</span><span class="zh"><code>./scripts/theme.sh</code> 之后<strong>新开 tab</strong>（老会话还留着旧规则集）。</span></li>
+<li><span class="en">Check the dashboard: <code>./scripts/doctor.sh --status</code> — <code>semantic</code> should show product rules and <code>SH=best editor</code>.</span><span class="zh">先看仪表盘：<code>./scripts/doctor.sh --status</code> —— <code>semantic</code> 行应有产品规则和 <code>SH=best editor</code>。</span></li>
+<li><span class="en">Cmd-click must be on: <code>CommandSelection=YES</code> (pinned by <code>./scripts/setup-gui.sh</code>).</span><span class="zh">Cmd-click 必须开着：<code>CommandSelection=YES</code>（<code>./scripts/setup-gui.sh</code> 会钉住）。</span></li>
+<li><span class="en">Install an editor iTerm2 recognizes (VS Code / Cursor / …) so “best editor” has somewhere to go.</span><span class="zh">装一个 iTerm2 认得出的编辑器（VS Code / Cursor …），「最佳编辑器」才有地方可去。</span></li>
+</ol>
+
+<div class="pager mt-12 flex justify-between border-t border-ash-100/10 pt-6 text-sm text-ash-400"><a href="../guide/node.html">← <span class="en">Node</span><span class="zh">Node</span></a><a href="../guide/doctor.html"><span class="en">Doctor</span><span class="zh">体检</span> →</a></div>
+</article>
+</div></div>
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.1</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js?v=3.0.4"></script>
+</body>
+</html>

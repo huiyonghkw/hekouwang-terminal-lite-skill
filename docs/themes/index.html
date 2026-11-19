@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+/* Sync lang before paint: ?lang -> localStorage -> navigator */
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+if(s==='zh')document.documentElement.classList.add('lang-zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>主题画廊 · 会勇禾口王·终端工作台</title>
+<meta name="description" content="会勇禾口王·终端工作台 7 套出厂主题：3 套社区免费 + 4 套品牌付费，每套 16 个 ANSI 色块、背景/前景/光标色与真机截图。">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/themes/">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="../feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="会勇禾口王·终端工作台">
+<meta property="og:title" content="主题画廊 · 会勇禾口王·终端工作台">
+<meta property="og:description" content="会勇禾口王·终端工作台 7 套出厂主题：3 套社区免费 + 4 套品牌付费，每套 16 个 ANSI 色块、背景/前景/光标色与真机截图。">
+<meta property="og:url" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/themes/">
+<meta property="og:image" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg?v=4" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png?v=5">
+<link rel="shortcut icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3">
+
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/tw.css">
+<link rel="stylesheet" href="../assets/site.css?v=3.3.5">
+<script defer src="../assets/toc.js"></script>
+<link rel="stylesheet" href="../assets/themes.css?v=2.13.0">
+<link rel="stylesheet" href="../assets/t-live.css">
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+<div id="prog"></div>
+<header id="site-nav" class="sticky top-0 border-b border-ash-100/10 bg-ink-950/85 backdrop-blur-xl z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="../index.html" class="brand-mark">
+      <img src="../images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="transition hover:text-ash-100" href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="text-ash-100" href="../guide/index.html" aria-current="page"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="../pricing.html" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"><span class="en">Buy</span><span class="zh">购买</span></a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+<div class="mx-auto max-w-6xl"><div class="docgrid mx-auto grid max-w-6xl gap-10 px-5 py-10 md:grid-cols-[220px_1fr] md:px-8 md:py-14">
+<aside class="side hidden text-sm text-ash-400 md:block" aria-label="Docs">
+<style>.side a{display:block;padding:.35rem 0;color:#9a8d80}.side a:hover{color:#f3eee6}.side a[aria-current=page]{color:#e8915a}.side .st{font-family:IBM Plex Mono,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#6f655c;margin:1rem 0 .4rem}.side .grp{margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(243,238,230,.08)}.pillgrid{display:grid;gap:.75rem;margin:1.25rem 0;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}.pill{display:block;padding:1rem 1.1rem;border:1px solid rgba(243,238,230,.1);background:rgba(26,23,20,.6);text-decoration:none!important}.pill .t{font-family:Syne,sans-serif;font-weight:700;color:#f3eee6}.pill .d{margin-top:.35rem;font-size:.85rem;color:#9a8d80}.tag{display:inline-block;font-family:IBM Plex Mono,monospace;font-size:.65rem;padding:.1rem .4rem;border-radius:999px}.tag-free{color:#7dcea0;background:rgba(125,206,160,.12)}.tag-paid{color:#e8915a;background:rgba(232,145,90,.12)}.muted{color:#6f655c;font-size:.9rem}.btn{display:inline-flex;align-items:center;padding:.55rem 1.1rem;border-radius:999px;font-size:.875rem;font-weight:600;text-decoration:none}.btn-primary{background:#f3eee6;color:#070605}.btn-pro{background:#d4723a;color:#070605}</style>
+  <div class="st"><span class="en">Guide</span><span class="zh">指南</span></div>
+  <a href="../guide/index.html"><span class="en">Intro</span><span class="zh">简介</span></a>
+  <a href="../guide/install.html"><span class="en">Install</span><span class="zh">安装</span></a>
+  <a href="../guide/theme.html"><span class="en">Themes &amp; auto</span><span class="zh">换肤与跟随</span></a>
+  <a href="../guide/terminals.html"><span class="en">Terminal coverage</span><span class="zh">终端覆盖</span></a>
+  <a href="../guide/doctor.html"><span class="en">Doctor</span><span class="zh">体检</span></a>
+  <a href="../guide/uninstall.html"><span class="en">Uninstall</span><span class="zh">卸载</span></a>
+  <div class="grp">
+    <div class="st"><span class="en">Also</span><span class="zh">另见</span></div>
+    <a href="../tools/index.html"><span class="en">CLI index</span><span class="zh">脚本索引</span></a>
+    <a href="../themes/index.html" aria-current="page"><span class="en">Theme gallery</span><span class="zh">主题画廊</span></a>
+    <a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+    <a href="../changelog.html"><span class="en">Changelog</span><span class="zh">更新日志</span></a>
+  </div>
+</aside>
+<article class="doc prose-hkw min-w-0">
+<div class="crumb mb-4 font-mono text-xs text-ash-500"><a href="../index.html"><span class="en">Home</span><span class="zh">首页</span></a> · <a href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a> · <span class="en">Theme gallery</span><span class="zh">主题画廊</span></div>
+<h1 class="font-display text-3xl font-bold tracking-tight text-ash-100 md:text-4xl"><span class="en">Theme gallery</span><span class="zh">主题画廊</span></h1>
+<p class="lead mt-3 text-lg text-ash-300"><span class="en">Seven factory themes. The three community schemes are free; the four brand schemes ship with the Pro build. Every swatch below is read from that theme's JSON — not sampled from a screenshot.</span><span class="zh">7 套出厂主题。3 套社区配色免费；4 套品牌配色随付费包交付。下面每个色块都直接读自该主题的 JSON，不是从截图上吸色。</span></p>
+
+<div class="tl-sticky">
+  <div class="t-live" data-tlive="ember">
+    <div class="tl-chrome" aria-hidden="true"><i></i><i></i><i></i><span class="tl-title">zsh — ember</span></div>
+    <pre class="tl-body"><span class="tl-p">❯</span> <span class="tl-dir">~/proj</span> <span class="tl-git">main</span>
+<span class="tl-p">❯</span> eza --group-directories-first
+<span class="tl-dir tl-b">assets/</span>      <span class="tl-fg">README.md</span>
+<span class="tl-exe">build.sh</span>    <span class="tl-fg">run.sh</span>
+<span class="tl-p">❯</span> git diff --stat
+ app/main.lua | <span class="tl-num">4</span> ++--
+ <span class="tl-num">1</span> file changed, <span class="tl-num">2</span> insertions(+), <span class="tl-num">2</span> deletions(-)
+<span class="tl-add">+ spawn("agent --watch")</span>
+<span class="tl-del">- pcall(loadfile("agent"))</span>
+<span class="tl-p">❯</span><span class="tl-cur">▍</span>
+<span class="tl-err">[ERROR] exit 1</span>   <span class="tl-warn">[WARN] retry 2/5</span>   <span class="tl-ok">[SUCCESS] done</span></pre>
+  </div>
+</div>
+<p class="muted"><span class="en">Values come from <code>Profiles[0]</code> in <code>config/themes/&lt;name&gt;.json</code>: ANSI 0–15, background, foreground, cursor. Real screens come from the same terminal workflow; screenshots are not bound to one palette per card — use the swatches for exact colors.</span><span class="zh">色值来自 <code>config/themes/&lt;name&gt;.json</code> 的 <code>Profiles[0]</code>：ANSI 0–15、背景、前景、光标。真机图取自同一套终端工作流；截图不逐套绑定色板 —— 精确颜色以上方 swatch 为准。</span></p>
+
+<figure style="margin:26px 0">
+  <video src="../images/demo-theme-preview.mp4" width="800" height="933" autoplay muted loop playsinline preload="metadata"
+       style="max-width:100%;border:1px solid var(--border);border-radius:12px"
+       aria-label="会勇禾口王·终端工作台主题预览：暖纸 → 暖烬 → Tokyo Night → Gruvbox Dark"></video>
+  <figcaption class="muted" style="margin-top:8px"><span class="en">Real terminal preview: parchment → ember → tokyo-night → gruvbox-dark. Same palette, four looks.</span><span class="zh">真机预览：暖纸 → 暖烬 → Tokyo Night → Gruvbox Dark。同一份色板，四种观感。</span></figcaption>
+</figure>
+
+<div class="fig tfig">
+  <div class="hd"><span class="no">FIG</span><span class="tag tag-free">free</span></div>
+  <img src="../images/theme-fzf-pick.webp?v=7" alt="theme.sh --list 当前主题画廊" loading="lazy" decoding="async">
+  <div class="cap"><span class="en"><code>./scripts/theme.sh --list</code> — current factory list (ember / voltage / parchment / ledger + community). See <a href="../guide/theme.html">Themes &amp; auto</a>.</span><span class="zh"><code>./scripts/theme.sh --list</code> — 当前出厂列表（ember / voltage / parchment / ledger + 社区）。详见<a href="../guide/theme.html">换肤与跟随</a>。</span></div>
+</div>
+
+<div class="tjump" aria-label="Theme index">
+  <a href="#catppuccin-mocha">Catppuccin Mocha</a>
+  <a href="#tokyo-night">Tokyo Night</a>
+  <a href="#gruvbox-dark">Gruvbox Dark</a>
+  <a href="#ember">Ember</a>
+  <a href="#voltage">Voltage</a>
+  <a href="#parchment">Parchment</a>
+  <a href="#ledger">Ledger</a>
+</div>
+
+<p class="mt-4 font-mono text-xs text-ash-500"><span class="en">Click any card — the terminal above re-skins itself.</span><span class="zh">点击任意色卡，上方终端实时换装</span></p>
+
+<!-- BEGIN:GENERATED:THEMES -->
+<h2><span class="en">Free · community</span><span class="zh">免费 · 社区</span></h2>
+<p><span class="en">These three ship in the lite build. Switch by name, or use the picker for a live preview.</span><span class="zh">这三套随 Lite 版交付。按名切换，或用选肤器看实时预览。</span></p>
+<div class="tgrid">
+<article class="tcard free dark" id="catppuccin-mocha">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">01 · FREE · DARK</div>
+      <h3><span class="en">hekouwang · Catppuccin Mocha</span><span class="zh">会勇禾口王 · Catppuccin Mocha</span></h3>
+      <div class="tslug"><code>catppuccin-mocha</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-free">free</span>
+      <span class="tag tag-mode"><span class="en">dark</span><span class="zh">暗色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#1e1e2e"></i><code>#1e1e2e</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#cdd6f4"></i><code>#cdd6f4</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#fab387"></i><code>#fab387</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #45475a"><i style="background:#45475a"></i><div class="sw-meta"><span class="n">00</span><code>#45475a</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #fc84a7"><i style="background:#fc84a7"></i><div class="sw-meta"><span class="n">01</span><code>#fc84a7</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #9fe699"><i style="background:#9fe699"></i><div class="sw-meta"><span class="n">02</span><code>#9fe699</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #fce1a6"><i style="background:#fce1a6"></i><div class="sw-meta"><span class="n">03</span><code>#fce1a6</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #86b4ff"><i style="background:#86b4ff"></i><div class="sw-meta"><span class="n">04</span><code>#86b4ff</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #fabfea"><i style="background:#fabfea"></i><div class="sw-meta"><span class="n">05</span><code>#fabfea</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #88e4d6"><i style="background:#88e4d6"></i><div class="sw-meta"><span class="n">06</span><code>#88e4d6</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #bac2de"><i style="background:#bac2de"></i><div class="sw-meta"><span class="n">07</span><code>#bac2de</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #65697e"><i style="background:#65697e"></i><div class="sw-meta"><span class="n">08</span><code>#65697e</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #ffabc0"><i style="background:#ffabc0"></i><div class="sw-meta"><span class="n">09</span><code>#ffabc0</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #bdffb7"><i style="background:#bdffb7"></i><div class="sw-meta"><span class="n">10</span><code>#bdffb7</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #fff8e7"><i style="background:#fff8e7"></i><div class="sw-meta"><span class="n">11</span><code>#fff8e7</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #acccff"><i style="background:#acccff"></i><div class="sw-meta"><span class="n">12</span><code>#acccff</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #ffe0f6"><i style="background:#ffe0f6"></i><div class="sw-meta"><span class="n">13</span><code>#ffe0f6</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #a2feef"><i style="background:#a2feef"></i><div class="sw-meta"><span class="n">14</span><code>#a2feef</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #d4dbf7"><i style="background:#d4dbf7"></i><div class="sw-meta"><span class="n">15</span><code>#d4dbf7</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh catppuccin-mocha</code><span class="tag tag-free"><span class="en">free</span><span class="zh">免费</span></span></div>
+</article>
+<article class="tcard free dark" id="tokyo-night">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">02 · FREE · DARK</div>
+      <h3><span class="en">hekouwang · Tokyo Night</span><span class="zh">会勇禾口王 · Tokyo Night</span></h3>
+      <div class="tslug"><code>tokyo-night</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-free">free</span>
+      <span class="tag tag-mode"><span class="en">dark</span><span class="zh">暗色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#1a1b26"></i><code>#1a1b26</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#c0caf5"></i><code>#c0caf5</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#7dcfff"></i><code>#7dcfff</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #15161e"><i style="background:#15161e"></i><div class="sw-meta"><span class="n">00</span><code>#15161e</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #fb728d"><i style="background:#fb728d"></i><div class="sw-meta"><span class="n">01</span><code>#fb728d</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #9ccf64"><i style="background:#9ccf64"></i><div class="sw-meta"><span class="n">02</span><code>#9ccf64</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #e2ae62"><i style="background:#e2ae62"></i><div class="sw-meta"><span class="n">03</span><code>#e2ae62</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #77a2fc"><i style="background:#77a2fc"></i><div class="sw-meta"><span class="n">04</span><code>#77a2fc</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #bc98fb"><i style="background:#bc98fb"></i><div class="sw-meta"><span class="n">05</span><code>#bc98fb</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #7dcfff"><i style="background:#7dcfff"></i><div class="sw-meta"><span class="n">06</span><code>#7dcfff</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #a9b1d6"><i style="background:#a9b1d6"></i><div class="sw-meta"><span class="n">07</span><code>#a9b1d6</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #5e6688"><i style="background:#5e6688"></i><div class="sw-meta"><span class="n">08</span><code>#5e6688</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #ff98a8"><i style="background:#ff98a8"></i><div class="sw-meta"><span class="n">09</span><code>#ff98a8</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #b4e87c"><i style="background:#b4e87c"></i><div class="sw-meta"><span class="n">10</span><code>#b4e87c</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #fdc87b"><i style="background:#fdc87b"></i><div class="sw-meta"><span class="n">11</span><code>#fdc87b</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #99baff"><i style="background:#99baff"></i><div class="sw-meta"><span class="n">12</span><code>#99baff</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #cfb6ff"><i style="background:#cfb6ff"></i><div class="sw-meta"><span class="n">13</span><code>#cfb6ff</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #b2e2ff"><i style="background:#b2e2ff"></i><div class="sw-meta"><span class="n">14</span><code>#b2e2ff</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #c0caf5"><i style="background:#c0caf5"></i><div class="sw-meta"><span class="n">15</span><code>#c0caf5</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh tokyo-night</code><span class="tag tag-free"><span class="en">free</span><span class="zh">免费</span></span></div>
+</article>
+<article class="tcard free dark" id="gruvbox-dark">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">03 · FREE · DARK</div>
+      <h3><span class="en">hekouwang · Gruvbox Dark</span><span class="zh">会勇禾口王 · Gruvbox Dark</span></h3>
+      <div class="tslug"><code>gruvbox-dark</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-free">free</span>
+      <span class="tag tag-mode"><span class="en">dark</span><span class="zh">暗色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#282828"></i><code>#282828</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#ebdbb2"></i><code>#ebdbb2</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#fe8019"></i><code>#fe8019</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #282828"><i style="background:#282828"></i><div class="sw-meta"><span class="n">00</span><code>#282828</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #ff4f41"><i style="background:#ff4f41"></i><div class="sw-meta"><span class="n">01</span><code>#ff4f41</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #989700"><i style="background:#989700"></i><div class="sw-meta"><span class="n">02</span><code>#989700</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #da9800"><i style="background:#da9800"></i><div class="sw-meta"><span class="n">03</span><code>#da9800</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #539b9f"><i style="background:#539b9f"></i><div class="sw-meta"><span class="n">04</span><code>#539b9f</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #cb729c"><i style="background:#cb729c"></i><div class="sw-meta"><span class="n">05</span><code>#cb729c</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #639e66"><i style="background:#639e66"></i><div class="sw-meta"><span class="n">06</span><code>#639e66</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #a89984"><i style="background:#a89984"></i><div class="sw-meta"><span class="n">07</span><code>#a89984</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #928374"><i style="background:#928374"></i><div class="sw-meta"><span class="n">08</span><code>#928374</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #ff826e"><i style="background:#ff826e"></i><div class="sw-meta"><span class="n">09</span><code>#ff826e</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #b9bb00"><i style="background:#b9bb00"></i><div class="sw-meta"><span class="n">10</span><code>#b9bb00</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #febc00"><i style="background:#febc00"></i><div class="sw-meta"><span class="n">11</span><code>#febc00</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #88afa1"><i style="background:#88afa1"></i><div class="sw-meta"><span class="n">12</span><code>#88afa1</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #e38da4"><i style="background:#e38da4"></i><div class="sw-meta"><span class="n">13</span><code>#e38da4</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #8ac176"><i style="background:#8ac176"></i><div class="sw-meta"><span class="n">14</span><code>#8ac176</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #ebdbb2"><i style="background:#ebdbb2"></i><div class="sw-meta"><span class="n">15</span><code>#ebdbb2</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh gruvbox-dark</code><span class="tag tag-free"><span class="en">free</span><span class="zh">免费</span></span></div>
+</article>
+</div>
+
+<h2><span class="en">Paid · brand</span><span class="zh">付费 · 品牌</span> <span class="tag tag-paid">paid</span></h2>
+<p><span class="en">Ember and Voltage are dark; Parchment and Ledger are light. They ship only with the Pro build — shown here for the look and the measured colors, not as a do-it-yourself recipe.</span><span class="zh">Ember、Voltage 为暗色；Parchment、Ledger 为亮色。只在付费包内交付 —— 这里展示观感与实测色值，不提供自制配方。</span></p>
+<div class="tgrid">
+<article class="tcard paid dark" id="ember">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">04 · PAID · DARK</div>
+      <h3><span class="en">hekouwang · Ember</span><span class="zh">会勇禾口王 · 暖烬</span></h3>
+      <div class="tslug"><code>ember</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-paid">paid</span>
+      <span class="tag tag-mode"><span class="en">dark</span><span class="zh">暗色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#19191a"></i><code>#19191a</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#f4f2eb"></i><code>#f4f2eb</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#e08a5f"></i><code>#e08a5f</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #4d4742"><i style="background:#4d4742"></i><div class="sw-meta"><span class="n">00</span><code>#4d4742</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #d4765c"><i style="background:#d4765c"></i><div class="sw-meta"><span class="n">01</span><code>#d4765c</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #29a152"><i style="background:#29a152"></i><div class="sw-meta"><span class="n">02</span><code>#29a152</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #bd851d"><i style="background:#bd851d"></i><div class="sw-meta"><span class="n">03</span><code>#bd851d</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #5697c1"><i style="background:#5697c1"></i><div class="sw-meta"><span class="n">04</span><code>#5697c1</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #a080d2"><i style="background:#a080d2"></i><div class="sw-meta"><span class="n">05</span><code>#a080d2</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #2ba195"><i style="background:#2ba195"></i><div class="sw-meta"><span class="n">06</span><code>#2ba195</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #d9d5cb"><i style="background:#d9d5cb"></i><div class="sw-meta"><span class="n">07</span><code>#d9d5cb</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #958a80"><i style="background:#958a80"></i><div class="sw-meta"><span class="n">08</span><code>#958a80</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #eea996"><i style="background:#eea996"></i><div class="sw-meta"><span class="n">09</span><code>#eea996</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #4ecd77"><i style="background:#4ecd77"></i><div class="sw-meta"><span class="n">10</span><code>#4ecd77</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #e2b25e"><i style="background:#e2b25e"></i><div class="sw-meta"><span class="n">11</span><code>#e2b25e</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #8dc0e3"><i style="background:#8dc0e3"></i><div class="sw-meta"><span class="n">12</span><code>#8dc0e3</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #c6afed"><i style="background:#c6afed"></i><div class="sw-meta"><span class="n">13</span><code>#c6afed</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #43cfc1"><i style="background:#43cfc1"></i><div class="sw-meta"><span class="n">14</span><code>#43cfc1</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #f4f2eb"><i style="background:#f4f2eb"></i><div class="sw-meta"><span class="n">15</span><code>#f4f2eb</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh ember</code><span class="tag tag-paid"><span class="en">paid</span><span class="zh">付费</span></span></div>
+</article>
+<article class="tcard paid dark" id="voltage">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">05 · PAID · DARK</div>
+      <h3><span class="en">hekouwang · Voltage</span><span class="zh">会勇禾口王 · 霓虹电压</span></h3>
+      <div class="tslug"><code>voltage</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-paid">paid</span>
+      <span class="tag tag-mode"><span class="en">dark</span><span class="zh">暗色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#050508"></i><code>#050508</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#e8e8ed"></i><code>#e8e8ed</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#00d4aa"></i><code>#00d4aa</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #3f3c4c"><i style="background:#3f3c4c"></i><div class="sw-meta"><span class="n">00</span><code>#3f3c4c</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #fa4861"><i style="background:#fa4861"></i><div class="sw-meta"><span class="n">01</span><code>#fa4861</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #00a148"><i style="background:#00a148"></i><div class="sw-meta"><span class="n">02</span><code>#00a148</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #d57200"><i style="background:#d57200"></i><div class="sw-meta"><span class="n">03</span><code>#d57200</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #308df4"><i style="background:#308df4"></i><div class="sw-meta"><span class="n">04</span><code>#308df4</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #9175ff"><i style="background:#9175ff"></i><div class="sw-meta"><span class="n">05</span><code>#9175ff</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #009aad"><i style="background:#009aad"></i><div class="sw-meta"><span class="n">06</span><code>#009aad</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #cdcbe0"><i style="background:#cdcbe0"></i><div class="sw-meta"><span class="n">07</span><code>#cdcbe0</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #6f6c83"><i style="background:#6f6c83"></i><div class="sw-meta"><span class="n">08</span><code>#6f6c83</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #fd99a7"><i style="background:#fd99a7"></i><div class="sw-meta"><span class="n">09</span><code>#fd99a7</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #00d25e"><i style="background:#00d25e"></i><div class="sw-meta"><span class="n">10</span><code>#00d25e</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #f4a554"><i style="background:#f4a554"></i><div class="sw-meta"><span class="n">11</span><code>#f4a554</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #82baf8"><i style="background:#82baf8"></i><div class="sw-meta"><span class="n">12</span><code>#82baf8</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #bbaaff"><i style="background:#bbaaff"></i><div class="sw-meta"><span class="n">13</span><code>#bbaaff</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #00c8e0"><i style="background:#00c8e0"></i><div class="sw-meta"><span class="n">14</span><code>#00c8e0</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #e8e8ed"><i style="background:#e8e8ed"></i><div class="sw-meta"><span class="n">15</span><code>#e8e8ed</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh voltage</code><span class="tag tag-paid"><span class="en">paid</span><span class="zh">付费</span></span></div>
+</article>
+<article class="tcard paid light" id="parchment">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">06 · PAID · LIGHT</div>
+      <h3><span class="en">hekouwang · Parchment</span><span class="zh">会勇禾口王 · 暖纸</span></h3>
+      <div class="tslug"><code>parchment</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-paid">paid</span>
+      <span class="tag tag-mode"><span class="en">light</span><span class="zh">亮色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#faf9f5"></i><code>#faf9f5</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#1a1a18"></i><code>#1a1a18</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#b85433"></i><code>#b85433</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #a59b91"><i style="background:#a59b91"></i><div class="sw-meta"><span class="n">00</span><code>#a59b91</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #a54930"><i style="background:#a54930"></i><div class="sw-meta"><span class="n">01</span><code>#a54930</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #087434"><i style="background:#087434"></i><div class="sw-meta"><span class="n">02</span><code>#087434</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #835f1d"><i style="background:#835f1d"></i><div class="sw-meta"><span class="n">03</span><code>#835f1d</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #266b97"><i style="background:#266b97"></i><div class="sw-meta"><span class="n">04</span><code>#266b97</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #7c42cd"><i style="background:#7c42cd"></i><div class="sw-meta"><span class="n">05</span><code>#7c42cd</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #05736b"><i style="background:#05736b"></i><div class="sw-meta"><span class="n">06</span><code>#05736b</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #6e645a"><i style="background:#6e645a"></i><div class="sw-meta"><span class="n">07</span><code>#6e645a</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #86796d"><i style="background:#86796d"></i><div class="sw-meta"><span class="n">08</span><code>#86796d</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #723221"><i style="background:#723221"></i><div class="sw-meta"><span class="n">09</span><code>#723221</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #236436"><i style="background:#236436"></i><div class="sw-meta"><span class="n">10</span><code>#236436</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #5a4214"><i style="background:#5a4214"></i><div class="sw-meta"><span class="n">11</span><code>#5a4214</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #1a4a67"><i style="background:#1a4a67"></i><div class="sw-meta"><span class="n">12</span><code>#1a4a67</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #572c92"><i style="background:#572c92"></i><div class="sw-meta"><span class="n">13</span><code>#572c92</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #074f49"><i style="background:#074f49"></i><div class="sw-meta"><span class="n">14</span><code>#074f49</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #312d28"><i style="background:#312d28"></i><div class="sw-meta"><span class="n">15</span><code>#312d28</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh parchment</code><span class="tag tag-paid"><span class="en">paid</span><span class="zh">付费</span></span></div>
+</article>
+<article class="tcard paid light" id="ledger">
+  <div class="tcard-hd">
+    <div class="tcard-id">
+      <div class="tno">07 · PAID · LIGHT</div>
+      <h3><span class="en">hekouwang · Ledger</span><span class="zh">会勇禾口王 · 账簿</span></h3>
+      <div class="tslug"><code>ledger</code></div>
+    </div>
+    <div class="ttags">
+      <span class="tag tag-paid">paid</span>
+      <span class="tag tag-mode"><span class="en">light</span><span class="zh">亮色</span></span>
+    </div>
+  </div>
+  <div class="tchips">
+    <span class="tchip"><b>BG</b><i style="background:#ffffff"></i><code>#ffffff</code></span>
+    <span class="tchip"><b>FG</b><i style="background:#202124"></i><code>#202124</code></span>
+    <span class="tchip"><b>CURSOR</b><i style="background:#1a73e8"></i><code>#1a73e8</code></span>
+  </div>
+  <div class="swatches" role="list" aria-label="ANSI 0-15">
+    <div class="sw" role="listitem" title="ANSI 0 · #9da1a8"><i style="background:#9da1a8"></i><div class="sw-meta"><span class="n">00</span><code>#9da1a8</code></div></div><div class="sw" role="listitem" title="ANSI 1 · #d30010"><i style="background:#d30010"></i><div class="sw-meta"><span class="n">01</span><code>#d30010</code></div></div><div class="sw" role="listitem" title="ANSI 2 · #007a31"><i style="background:#007a31"></i><div class="sw-meta"><span class="n">02</span><code>#007a31</code></div></div><div class="sw" role="listitem" title="ANSI 3 · #995a00"><i style="background:#995a00"></i><div class="sw-meta"><span class="n">03</span><code>#995a00</code></div></div><div class="sw" role="listitem" title="ANSI 4 · #0b65d0"><i style="background:#0b65d0"></i><div class="sw-meta"><span class="n">04</span><code>#0b65d0</code></div></div><div class="sw" role="listitem" title="ANSI 5 · #9425ec"><i style="background:#9425ec"></i><div class="sw-meta"><span class="n">05</span><code>#9425ec</code></div></div><div class="sw" role="listitem" title="ANSI 6 · #00757b"><i style="background:#00757b"></i><div class="sw-meta"><span class="n">06</span><code>#00757b</code></div></div><div class="sw" role="listitem" title="ANSI 7 · #656972"><i style="background:#656972"></i><div class="sw-meta"><span class="n">07</span><code>#656972</code></div></div><div class="sw" role="listitem" title="ANSI 8 · #7a7f89"><i style="background:#7a7f89"></i><div class="sw-meta"><span class="n">08</span><code>#7a7f89</code></div></div><div class="sw" role="listitem" title="ANSI 9 · #96030a"><i style="background:#96030a"></i><div class="sw-meta"><span class="n">09</span><code>#96030a</code></div></div><div class="sw" role="listitem" title="ANSI 10 · #005621"><i style="background:#005621"></i><div class="sw-meta"><span class="n">10</span><code>#005621</code></div></div><div class="sw" role="listitem" title="ANSI 11 · #6b3e01"><i style="background:#6b3e01"></i><div class="sw-meta"><span class="n">11</span><code>#6b3e01</code></div></div><div class="sw" role="listitem" title="ANSI 12 · #094791"><i style="background:#094791"></i><div class="sw-meta"><span class="n">12</span><code>#094791</code></div></div><div class="sw" role="listitem" title="ANSI 13 · #6b00b5"><i style="background:#6b00b5"></i><div class="sw-meta"><span class="n">13</span><code>#6b00b5</code></div></div><div class="sw" role="listitem" title="ANSI 14 · #005257"><i style="background:#005257"></i><div class="sw-meta"><span class="n">14</span><code>#005257</code></div></div><div class="sw" role="listitem" title="ANSI 15 · #2f3135"><i style="background:#2f3135"></i><div class="sw-meta"><span class="n">15</span><code>#2f3135</code></div></div>
+  </div>
+  <div class="tfoot"><code>./scripts/theme.sh ledger</code><span class="tag tag-paid"><span class="en">paid</span><span class="zh">付费</span></span></div>
+</article>
+</div>
+<!-- END:GENERATED:THEMES -->
+
+<p><span class="en">Contrast, diff ΔL and color-blind separation are computed at generation time, not eyeballed. <code>./scripts/theme.sh --audit</code> re-runs the checks.</span><span class="zh">对比度、diff ΔL 与色盲分离度在生成期算好，不靠眼缘。<code>./scripts/theme.sh --audit</code> 可复跑。</span></p>
+<p><a class="btn btn-primary" href="../pricing.html"><span class="en">Get the Pro build →</span><span class="zh">获取专业版 →</span></a></p>
+
+<div class="pager mt-12 flex justify-between border-t border-ash-100/10 pt-6 text-sm text-ash-400"><a href="../tools/index.html">← <span class="en">Tools</span><span class="zh">工具</span></a><a href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span> →</a></div>
+</article>
+</div></div>
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.1</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="../guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="../pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script defer src="../assets/t-live.js"></script>
+<script src="../assets/site.js?v=3.0.4"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+# ClawHub 上传树排除清单（与 scripts/pack-skill-zip.sh 对账）
+# materials/、listing-skillpay.md 可留在主仓 git，但不得进 ClawHub / Skill 安装包。
+
+# 货架与商品文案（非运行时）
+materials/
+listing-skillpay.md
+
+# 本地/私有挂载与产物
+edition/
+plans/
+services/
+dist/
+archive/
+public/
+
+# 站点大资产（ClawHub 包只保留 docs/manual*.md；HTML/字体/图组由 pack 脚本再剔）
+docs/assets/
+docs/fonts/
+docs/images/
+docs/guide/
+docs/themes/
+docs/tools/
+docs/*.html
+docs/feed.xml
+docs/sitemap.xml
+docs/robots.txt
+docs/favicon.svg
+docs/icon.svg
+docs/llms.txt
+docs/速查卡.*
+
+# 测试与构建/维护者工具
+tests/
+tailwind.config.js
+scripts/release.sh
+scripts/pack-skill-zip.sh
+scripts/gen-site-changelog.py
+scripts/gen-site-meta.py
+scripts/gen-site-themes.py
+scripts/demo-scene-reel.sh
+scripts/apply-appendix-c.sh
+scripts/capture-compare.sh
+scripts/capture-font-check.sh
+
+# 仓务与杂物
+.git/
+.github/
+.gstack/
+.qwen/
+.claude/
+.gitignore
+STRUCTURE.md
+RELEASE.md
+AGENTS.md
+README.paid.md
+README.paid.en.md
+LICENSE-PRO.txt
+CHANGELOG.md
+SKILL.lite.md
+.env
+.env.*
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+.hkw-edition-overlay
+scripts/dev-overlay-from-edition.sh

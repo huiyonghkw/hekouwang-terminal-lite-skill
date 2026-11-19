@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+document.documentElement.classList.toggle('lang-zh',s==='zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+var titles={zh:'会勇禾口王·终端工作台 —— AI 时代的终端，值得重新配一次',en:'Hekouwang Terminal — your terminal, rebuilt for AI'};
+var descriptions={zh:'免费版配好的 iTerm2；专业版：ERROR 自动标红、场景一条命令、换机拷目录就还原。',en:'Free: a complete iTerm2 setup. Pro: ERROR auto-highlights, one-command scenes, copy-folder restore.'};
+document.title=titles[s];
+document.addEventListener('DOMContentLoaded',function(){
+  function meta(lang){document.title=titles[lang];var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content',descriptions[lang])}
+  meta(s);
+  var en=document.getElementById('btn-en'),zh=document.getElementById('btn-zh');
+  if(en)en.addEventListener('click',function(){meta('en')});
+  if(zh)zh.addEventListener('click',function(){meta('zh')});
+});
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会勇禾口王·终端工作台 —— AI 时代的终端，值得重新配一次</title>
+<meta name="description" content="免费版配好的 iTerm2；专业版：ERROR 自动标红、场景一条命令、换机拷目录就还原。">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="会勇禾口王·终端工作台">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/">
+<meta property="og:title" content="会勇禾口王·终端工作台 —— AI 时代的终端，值得重新配一次">
+<meta property="og:description" content="日志自动分色、录屏一条命令、换机拷目录。AI 还能直接调用这份 Skill。">
+<meta property="og:image" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg?v=4" type="image/svg+xml">
+<link rel="icon" href="images/icon-skillhub-64.png?v=5" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=5">
+<meta name="theme-color" content="#070605">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/tw.css">
+<link rel="stylesheet" href="assets/site.css?v=3.3.5">
+<link rel="stylesheet" href="assets/t-live.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "会勇禾口王·终端工作台（专业版）",
+  "alternateName": "Hekouwang Terminal",
+  "description": "AI 时代的终端工作台：ERROR 自动标红、场景一条命令、换机拷目录就还原。AI 能直接调用。",
+  "image": "https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png",
+  "brand": { "@type": "Brand", "name": "会勇禾口王·终端工作台", "alternateName": "Hekouwang Terminal" },
+  "offers": [
+    { "@type": "Offer", "name": "SkillPay quarterly", "price": "14.9", "priceCurrency": "CNY", "url": "https://skillpay.alipay.com/shelf/product?productId=P0806000213867166&merchantCode=huiyonghkw" },
+    { "@type": "Offer", "name": "SkillHub per call", "price": "2.99", "priceCurrency": "CNY", "url": "https://skillhub.cn/" }
+  ]
+}
+</script>
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+
+<div id="prog"></div>
+<div id="pointer-glow" aria-hidden="true"></div>
+<div class="film-grain" aria-hidden="true"></div>
+
+<header id="site-nav" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="index.html" class="brand-mark">
+      <img src="images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="text-ash-100" href="index.html" aria-current="page"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="transition hover:text-ash-100" href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="pricing.html#plans" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex">
+        <span class="en">Buy</span><span class="zh">购买</span>
+      </a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="site-main w-full">
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       HERO — 占满首屏：一句话 + 对比图 + 两个按钮
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section class="hero-full relative flex min-h-[100svh] flex-col overflow-hidden bg-ink-950">
+    <div class="ambient-orb ambient-orb--a" aria-hidden="true"></div>
+    <div class="ambient-orb ambient-orb--b" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-5 pt-24 pb-8 text-center md:px-8 md:pt-28 md:pb-12">
+      <p class="inline-block rounded-full border border-ember-500/30 bg-ember-500/10 px-3 py-1 font-mono text-[0.7rem] tracking-wide text-ember-300 uppercase"><span class="en">Claude Code · Cursor · AI agents</span><span class="zh">Claude Code · Cursor · AI 编程</span></p>
+      <h1 class="hero-headline mt-5 font-display text-[clamp(2.4rem,6.5vw,4.8rem)] font-extrabold leading-[1.05] tracking-tight text-ash-100">
+        <span class="en">Your terminal,<br>rebuilt for AI.</span>
+        <span class="zh">AI 时代的终端<br>值得重新配一次</span>
+      </h1>
+      <p class="mt-6 max-w-2xl text-[clamp(1.05rem,2vw,1.3rem)] leading-relaxed text-ash-300">
+        <span class="en">Four Agent tabs look identical? ERROR drowned in logs? Settings lost on new machine? This Skill fixes all three — and the AI can run it too.</span>
+        <span class="zh">四个 Agent 标签长得一样？ERROR 淹没在日志里？换台电脑又要从头配？这份 Skill 一并解决——而且 AI 能直接调用。</span>
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="guide/install.html" class="btn-mag btn-mag--solid inline-flex items-center rounded-full bg-ash-100 px-7 py-3.5 text-[0.95rem] font-semibold text-ink-950 hover:bg-white">
+          <span class="en">Install free</span><span class="zh">安装免费版</span>
+        </a>
+        <a href="pricing.html#plans" class="btn-mag btn-mag--ember inline-flex items-center rounded-full border border-ember-400/50 bg-ember-500/10 px-7 py-3.5 text-[0.95rem] font-semibold text-ember-300 hover:border-ember-300 hover:bg-ember-500/20">
+          <span class="en">¥14.9/quarter</span><span class="zh">¥14.9/季度</span>
+        </a>
+      </div>
+    </div>
+
+    <figure class="hero-compare relative z-10 mx-auto w-full max-w-3xl px-4 pb-6 md:px-8 md:pb-10">
+      <div class="t-live" data-tlive="ember">
+        <div class="tl-chrome" aria-hidden="true"><i></i><i></i><i></i><span class="tl-title">zsh — ember</span></div>
+        <pre class="tl-body"><span class="tl-p">❯</span> <span class="tl-dir">~/proj</span> <span class="tl-git">main</span>
+<span class="tl-p">❯</span> eza --group-directories-first
+<span class="tl-dir tl-b">assets/</span>      <span class="tl-fg">README.md</span>
+<span class="tl-exe">build.sh</span>    <span class="tl-fg">run.sh</span>
+<span class="tl-p">❯</span> git diff --stat
+ app/main.lua | <span class="tl-num">4</span> ++--
+ <span class="tl-num">1</span> file changed, <span class="tl-num">2</span> insertions(+), <span class="tl-num">2</span> deletions(-)
+<span class="tl-add">+ spawn("agent --watch")</span>
+<span class="tl-del">- pcall(loadfile("agent"))</span>
+<span class="tl-p">❯</span><span class="tl-cur">▍</span>
+<span class="tl-err">[ERROR] exit 1</span>   <span class="tl-warn">[WARN] retry 2/5</span>   <span class="tl-ok">[SUCCESS] done</span></pre>
+      </div>
+      <div class="t-live-dots" data-tlive-switcher data-auto aria-label="Theme preview">
+        <button class="t-dot" data-theme="catppuccin-mocha" data-display="Catppuccin Mocha" aria-label="切换到 Catppuccin Mocha"></button>
+        <button class="t-dot" data-theme="tokyo-night" data-display="Tokyo Night" aria-label="切换到 Tokyo Night"></button>
+        <button class="t-dot" data-theme="gruvbox-dark" data-display="Gruvbox Dark" aria-label="切换到 Gruvbox Dark"></button>
+        <button class="t-dot is-active" data-theme="ember" data-display="Ember 暖烬" aria-label="切换到 Ember 暖烬"></button>
+        <button class="t-dot" data-theme="voltage" data-display="Voltage 霓虹电压" aria-label="切换到 Voltage 霓虹电压 · 专业版"></button>
+        <button class="t-dot" data-theme="parchment" data-display="Parchment 暖纸" aria-label="切换到 Parchment 暖纸 · 专业版"></button>
+        <button class="t-dot" data-theme="ledger" data-display="Ledger 账簿" aria-label="切换到 Ledger 账簿 · 专业版"></button>
+      </div>
+      <figcaption class="mt-3 text-center font-mono text-[0.68rem] tracking-wide text-ash-500">
+        <span class="en">7 factory themes · 3 free · 4 pro — click a dot or let it dress itself</span>
+        <span class="zh">7 套出厂主题 · 3 免费 · 4 专业 —— 点圆点或等它自己换装</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       FREE VS PRO — 真机截图对比滑块（从 hero 移出的 slim 区块）
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-ink-900" data-reveal>
+    <div class="mx-auto max-w-6xl px-4 md:px-8">
+      <h2 class="text-center font-display text-2xl font-bold tracking-tight text-ash-100 md:text-3xl">
+        <span class="en">Free vs Pro — real screenshots</span>
+        <span class="zh">免费版 vs 专业版，真机截图</span>
+      </h2>
+      <figure class="hero-compare relative z-10 mx-auto mt-8 w-full">
+        <div class="compare-frame overflow-hidden rounded-lg border border-ash-100/10 shadow-glow">
+          <div class="compare-slider" data-compare>
+            <img class="cmp-base" src="images/cmp-iterm2-free.webp?v=11" alt="免费版：eza / bat / git diff 各说各话">
+            <div class="cmp-overlay"><img class="cmp-top" src="images/cmp-iterm2-paid.webp?v=11" alt="专业版：同一份色板生成"></div>
+            <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"></span></div>
+            <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="拖动对比免费版与专业版 / drag to compare free vs pro">
+            <span class="compare-label cmp-tag--left"><span class="en">Free · each tool, own colors</span><span class="zh">免费版 · 工具各说各话</span></span>
+            <span class="compare-label cmp-tag--right"><span class="en">Pro · one palette</span><span class="zh">专业版 · 同一份色板</span></span>
+          </div>
+        </div>
+        <p class="mt-4 text-center font-mono text-[0.68rem] tracking-wide text-ash-500">
+          <span class="en">Same machine · same commands · only the palette differs</span>
+          <span class="zh">同一台机器 · 同一条命令 · 只差一份色板</span>
+        </p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       BLOCK 1 — 日志分色：ERROR 自动标红
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section class="py-32 md:py-40 bg-ink-900" data-reveal>
+    <div class="mx-auto max-w-5xl px-5 md:px-8">
+      <p class="text-center font-mono text-xs tracking-[0.2em] text-ember-400 uppercase">01</p>
+      <h2 class="mt-4 text-center font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.08] tracking-tight text-ash-100">
+        <span class="en">ERROR in red.<br>No more eye-scanning.</span>
+        <span class="zh">ERROR 自动标红<br>不用肉眼扫</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-ash-400">
+        <span class="en">Agent dumps 300 lines — where's the problem? Triggers mark ERROR / WARN / SUCCESS on the fly.</span>
+        <span class="zh">Agent 吐 300 行日志，问题在哪？Triggers 实时标出 ERROR / WARN / SUCCESS。</span>
+      </p>
+      <div class="mx-auto mt-14 grid max-w-3xl gap-4 md:grid-cols-4">
+        <div class="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-5 text-center">
+          <p class="font-mono text-sm font-semibold text-red-400">ERROR</p>
+          <p class="mt-1 text-xs text-ash-500"><span class="en">red highlight</span><span class="zh">红色高亮</span></p>
+        </div>
+        <div class="rounded-lg border border-amber-500/30 bg-amber-500/10 px-4 py-5 text-center">
+          <p class="font-mono text-sm font-semibold text-amber-400">WARN</p>
+          <p class="mt-1 text-xs text-ash-500"><span class="en">amber highlight</span><span class="zh">琥珀高亮</span></p>
+        </div>
+        <div class="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-5 text-center">
+          <p class="font-mono text-sm font-semibold text-emerald-400">SUCCESS</p>
+          <p class="mt-1 text-xs text-ash-500"><span class="en">green highlight</span><span class="zh">绿色高亮</span></p>
+        </div>
+        <div class="rounded-lg border border-blue-500/30 bg-blue-500/10 px-4 py-5 text-center">
+          <p class="font-mono text-sm font-semibold text-blue-400">Password:</p>
+          <p class="mt-1 text-xs text-ash-500"><span class="en">popup manager</span><span class="zh">弹出密码管理</span></p>
+        </div>
+      </div>
+      <p class="mt-6 text-center font-mono text-xs text-ash-500"><span class="en">4 Trigger rules ship with the Profile</span><span class="zh">4 条 Triggers 规则随 Profile 交付</span></p>
+    </div>
+  </section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+       BLOCK 2 — 场景引擎：一条命令改画面
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section class="py-32 md:py-40 bg-ink-950" data-reveal>
+    <div class="mx-auto max-w-5xl px-5 md:px-8">
+      <p class="text-center font-mono text-xs tracking-[0.2em] text-ember-400 uppercase">02</p>
+      <h2 class="mt-4 text-center font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.08] tracking-tight text-ash-100">
+        <span class="en">You say the moment.<br>The workbench changes the frame.</span>
+        <span class="zh">你说出场合<br>工作台改画面</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-ash-400">
+        <span class="en">daily · focus · present · record · remote — each one command.</span>
+        <span class="zh">日常 · 专注 · 演示 · 录屏 · 远程 —— 各一条命令。</span>
+      </p>
+      <figure class="scene-reel mt-14 overflow-hidden rounded-lg border border-ash-100/10 shadow-panel">
+        <video
+          class="scene-reel__video block w-full bg-ink-950"
+          src="images/scene-reel.mp4"
+          poster="images/scene-reel-poster.jpg"
+          width="3244"
+          height="2160"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="scene.sh: daily, focus, present, record, remote">
+        </video>
+      </figure>
+      <p class="mt-4 text-center font-mono text-xs text-ash-500">scene.sh apply daily | focus | present | record | remote</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       BLOCK 3 — 项目工作区：cd 进项目，标签自己变色
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section id="workspace" class="py-32 md:py-40 bg-ink-900" data-reveal>
+    <div class="mx-auto max-w-5xl px-5 md:px-8">
+      <p class="text-center font-mono text-xs tracking-[0.2em] text-ember-400 uppercase">03</p>
+      <h2 class="mt-4 text-center font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.08] tracking-tight text-ash-100">
+        <span class="en">Which tab is which Agent?<br>cd in, and the tab colors itself.</span>
+        <span class="zh">哪个 tab 是哪个 Agent？<br>cd 进项目，标签自己变色</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-ash-400">
+        <span class="en">Register a project once — after that, <code>cd</code> colors the tab and prints the project name top-right. Colors re-derive from the current theme, so a re-skin never breaks ranks. Run a few AI CLIs side by side and still tell them apart at a glance.</span>
+        <span class="zh">项目登记一次，之后 <code>cd</code> 进去标签自动变色、右上角印上项目名。颜色从当前主题色板重算，换肤不脱队——同时开几个 AI CLI 会话也一眼分清。</span>
+      </p>
+      <div class="term-chrome mx-auto mt-14 max-w-2xl overflow-hidden rounded-lg text-left">
+        <div class="dots flex items-center gap-1.5 border-b border-ash-100/5 bg-ink-800/40 px-4 py-2.5">
+          <i></i><i></i><i></i>
+          <span class="ml-3 font-mono text-[0.65rem] text-ash-500">zsh</span>
+        </div>
+<pre class="sc bg-ink-900/50 px-5 py-5 text-[0.82rem] leading-relaxed"><span class="c"># 登记一次</span>
+<span class="p">$</span> <span class="o">./scripts/workspace.sh</span> add ~/code/某项目
+
+<span class="c"># 之后 cd 进去：tab 自动变色 + 印上项目名</span>
+<span class="p">$</span> <span class="o">cd</span> ~/code/某项目</pre>
+      </div>
+      <figure class="mx-auto mt-10 max-w-3xl overflow-hidden rounded-lg border border-ash-100/10 shadow-panel">
+        <img src="images/40-workspace.webp" alt="三个项目三个标签色点：每个 tab 按所在项目自动变色并印上项目名" class="block w-full" loading="lazy">
+      </figure>
+      <p class="mt-6 text-center font-mono text-xs text-ember-400"><span class="en">workspace.sh · Pro build</span><span class="zh">workspace.sh · 专业版</span></p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       CTA — 价格 + 安装命令
+       ════════════════════════════════════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════════════════════════════════
+       SCENARIOS — 从你的场景开始
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-ink-950 border-t border-ash-100/10" data-reveal>
+    <div class="mx-auto max-w-5xl px-5 md:px-8">
+      <h2 class="text-center font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-bold tracking-tight text-ash-100"><span class="en">Start from your scene</span><span class="zh">从你的场景开始</span></h2>
+      <div class="pillgrid pillgrid--3 mt-10">
+  <a class="pill" href="pricing.html#stories">
+    <div class="t"><span class="en">Screen recording / presenting / recording a course</span><span class="zh">录屏 / 投屏 / 录课</span> <span class="tag tag-paid"><span class="en">Pro</span><span class="zh">专业版</span></span></div>
+    <div class="d"><span class="en">Window, font size, hidden paths — switched as one frame.</span><span class="zh">窗口、字号、藏路径，一次调好整个画面。</span></div>
+    <div class="d"><code>./scripts/scene.sh apply record|present</code></div>
+  </a>
+  <a class="pill" href="#workspace">
+    <div class="t"><span class="en">Several projects open at once</span><span class="zh">同时开好几个项目</span> <span class="tag tag-paid"><span class="en">Pro</span><span class="zh">专业版</span></span></div>
+    <div class="d"><span class="en">Register once; <code>cd</code> in and the tab colors itself.</span><span class="zh">登记一次，<code>cd</code> 进项目 tab 自动变色。</span></div>
+    <div class="d"><code>./scripts/workspace.sh add &lt;path&gt;</code></div>
+  </a>
+  <a class="pill" href="guide/semantic.html">
+    <div class="t"><span class="en">Heavy AI use (Claude Code / Cursor, many sessions)</span><span class="zh">AI 重度用户（Claude Code / Cursor 多会话）</span></div>
+    <div class="d"><span class="en">The Skill picks scripts; Cmd-click opens path:line.</span><span class="zh">Skill 替你挑脚本；Cmd-click 直达路径:行号。</span></div>
+    <div class="d"><span class="en">Semantic layer · free</span><span class="zh">语义层 · 免费版可用</span></div>
+  </a>
+</div>
+<p class="muted"><span class="en">Scene engine and project workspaces are Pro. The free build still has doctor, theme switching, and the semantic layer.</span><span class="zh">场景引擎与项目工作区为专业版能力；免费版可用体检、换肤、语义层。</span></p>
+    </div>
+  </section>
+
+<section class="py-32 md:py-40 bg-ink-950" data-reveal>
+    <div class="mx-auto max-w-4xl px-5 text-center md:px-8">
+      <h2 class="font-display text-[clamp(2rem,5vw,3.2rem)] font-bold leading-[1.1] tracking-tight text-ash-100">
+        <span class="en">Start free.<br>Upgrade when you need the full chain.</span>
+        <span class="zh">先免费装<br>需要全链时再升级</span>
+      </h2>
+      <div class="mt-12 flex flex-wrap justify-center gap-4">
+        <a href="guide/install.html" class="btn-mag btn-mag--solid inline-flex items-center rounded-full bg-ash-100 px-8 py-4 text-base font-semibold text-ink-950 hover:bg-white">
+          <span class="en">Install free →</span><span class="zh">安装免费版 →</span>
+        </a>
+        <a href="pricing.html#plans" class="btn-mag btn-mag--ember inline-flex items-center rounded-full border border-ember-400/50 bg-ember-500/10 px-8 py-4 text-base font-semibold text-ember-300 hover:border-ember-300 hover:bg-ember-500/20">
+          <span class="en">Pro · ¥14.9/quarter →</span><span class="zh">专业版 · ¥14.9/季度 →</span>
+        </a>
+      </div>
+
+      <div class="term-chrome mx-auto mt-16 max-w-2xl overflow-hidden rounded-lg text-left">
+        <div class="dots flex items-center gap-1.5 border-b border-ash-100/5 bg-ink-800/40 px-4 py-2.5">
+          <i></i><i></i><i></i>
+          <span class="ml-3 font-mono text-[0.65rem] text-ash-500">zsh</span>
+        </div>
+<pre class="sc bg-ink-900/50 px-5 py-5 text-[0.82rem] leading-relaxed"><span class="p">$</span> <span class="o">git clone</span> https://github.com/huiyonghkw/hekouwang-terminal-lite-skill.git
+<span class="p">$</span> <span class="o">cd</span> hekouwang-terminal-lite-skill
+<span class="p">$</span> <span class="o">./scripts/install.sh</span> --dry-run   <span class="c"># 先预演</span>
+<span class="p">$</span> <span class="o">./scripts/install.sh</span></pre>
+      </div>
+      <p class="mt-4 font-mono text-xs text-ash-500"><span class="en">New machine? <code>./scripts/sync.sh --state-export</code> exports pinned state; <code>--state-import</code> restores it in one go.</span><span class="zh">换机？<code>./scripts/sync.sh --state-export</code> 导出钉住状态，新机 <code>--state-import</code> 一条还原</span></p>
+      <p class="mt-5 text-sm text-ash-500"><span class="en">macOS only · No fonts shipped · Detects what you have</span><span class="zh">仅 macOS · 不分发字体 · 探测本机字体</span></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.1</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="assets/t-live.js"></script>
+<script src="assets/site.js?v=3.0.5"></script>
+</body>
+</html>

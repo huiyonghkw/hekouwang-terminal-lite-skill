@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<script>
+/* Sync lang before paint: ?lang -> localStorage -> navigator */
+(function(){try{var K='hkw-lang',q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q!=='zh'&&q!=='en')q=null;var s=q;if(!s)try{s=localStorage.getItem(K)}catch(e){}
+if(s!=='zh'&&s!=='en')s=/^zh/i.test(navigator.language||'')?'zh':'en';
+if(s==='zh')document.documentElement.classList.add('lang-zh');
+document.documentElement.lang=s==='zh'?'zh-CN':'en';
+if(q)try{localStorage.setItem(K,q)}catch(e){}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog · 会勇禾口王·终端工作台</title>
+<meta name="description" content="What changed in recent public releases.">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/changelog.html">
+<link rel="alternate" type="application/atom+xml" title="更新日志" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="会勇禾口王·终端工作台">
+<meta property="og:title" content="Changelog · 会勇禾口王·终端工作台">
+<meta property="og:description" content="What changed in recent public releases.">
+<meta property="og:url" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/changelog.html">
+<meta property="og:image" content="https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg?v=4" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=5">
+<link rel="shortcut icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/hekouwang-terminal-lite-skill/favicon.svg?v=3">
+
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/tw.css">
+<link rel="stylesheet" href="assets/site.css?v=3.3.5">
+</head>
+<body class="bg-ink-950 text-ash-100 font-sans antialiased">
+<div id="prog"></div>
+<header id="site-nav" class="sticky top-0 border-b border-ash-100/10 bg-ink-950/85 backdrop-blur-xl z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+    <a href="index.html" class="brand-mark">
+      <img src="images/icon-skillhub.svg?v=4" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name"><span class="en">Hekouwang</span><span class="zh">会勇禾口王</span></span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product"><span class="en">Terminal</span><span class="zh">终端工作台</span></span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+<nav class="mh-nav hidden items-center gap-5 text-[0.8125rem] text-ash-400 lg:flex" aria-label="Primary">
+      <a class="transition hover:text-ash-100" href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a class="text-ash-100" href="guide/index.html" aria-current="page"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <div class="toggle flex rounded-full border border-ash-100/10 bg-ink-800/60 p-0.5 text-xs font-medium" role="group" aria-label="Language">
+        <button id="btn-en" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="true">EN</button>
+        <button id="btn-zh" class="rounded-full px-2.5 py-1 text-ash-400 transition" aria-pressed="false">中文</button>
+      </div>
+      <a href="pricing.html" class="btn-mag btn-mag--ember hidden rounded-full bg-ember-500 px-3.5 py-1.5 text-sm font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"><span class="en">Buy</span><span class="zh">购买</span></a>
+      <button id="nav-toggle" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ash-100/10 text-ash-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <div id="mobile-nav" class="border-t border-ash-100/10 bg-ink-950/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-3 text-sm text-ash-200">
+      <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+      <a href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</header>
+<div class="mx-auto max-w-6xl"><div class="docgrid mx-auto grid max-w-6xl gap-10 px-5 py-10 md:grid-cols-[220px_1fr] md:px-8 md:py-14">
+<aside class="side hidden text-sm text-ash-400 md:block" aria-label="Docs">
+<style>.side a{display:block;padding:.35rem 0;color:#9a8d80}.side a:hover{color:#f3eee6}.side a[aria-current=page]{color:#e8915a}.side .st{font-family:IBM Plex Mono,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#6f655c;margin:1rem 0 .4rem}.side .grp{margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(243,238,230,.08)}</style>
+  <div class="st"><span class="en">Guide</span><span class="zh">指南</span></div>
+  <a href="guide/index.html"><span class="en">Intro</span><span class="zh">简介</span></a>
+  <a href="guide/install.html"><span class="en">Install</span><span class="zh">安装</span></a>
+  <a href="guide/theme.html"><span class="en">Themes &amp; auto</span><span class="zh">换肤与跟随</span></a>
+  <a href="guide/terminals.html"><span class="en">Terminal coverage</span><span class="zh">终端覆盖</span></a>
+  <a href="guide/doctor.html"><span class="en">Doctor</span><span class="zh">体检</span></a>
+  <a href="guide/uninstall.html"><span class="en">Uninstall</span><span class="zh">卸载</span></a>
+  <div class="grp">
+    <div class="st"><span class="en">Also</span><span class="zh">另见</span></div>
+    <a href="tools/index.html"><span class="en">CLI index</span><span class="zh">脚本索引</span></a>
+    <a href="themes/index.html"><span class="en">Theme gallery</span><span class="zh">主题画廊</span></a>
+    <a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+    <a href="changelog.html" aria-current="page"><span class="en">Changelog</span><span class="zh">更新日志</span></a>
+    <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+    <a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill"><span class="en">Source (MIT)</span><span class="zh">源码 (MIT)</span></a>
+  </div>
+</aside>
+<article class="doc prose-hkw min-w-0">
+<div class="crumb mb-4 font-mono text-xs text-ash-500"><a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a> · <a href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a> · <span class="en">Changelog</span><span class="zh">更新日志</span></div>
+<h1 class="font-display text-3xl font-bold tracking-tight text-ash-100 md:text-4xl"><span class="en">Changelog</span><span class="zh">更新日志</span></h1>
+<p class="lead mt-3 text-lg text-ash-300"><span class="en">What changed in recent public releases.</span><span class="zh">近期公开版改了什么。</span></p>
+
+<p class="muted"><span class="en">Public changelog highlights. Full history lives in the repo CHANGELOG.</span><span class="zh">公开版要点。完整历史见仓库 CHANGELOG。</span></p>
+<!-- BEGIN:GENERATED:CHANGELOG -->
+<h2>3.0.5 · 审核安全项收尾（2026-11-18）</h2>
+<ul>
+<li>卸载：所有删除/还原项在交互模式下先询问（Apple Terminal Profile、<code>~/.gitconfig</code>、<code>~/.tmux.conf</code>、动态 Profile、运行时、Ghostty/bat/VS Code 主题等）；<code>--yes</code> 跳过确认执行默认档</li>
+<li><code>sync.sh --export</code> 改用 <code>mktemp</code> 临时清单（600 权限），不再使用固定 <code>/tmp/.hkw-files.z</code></li>
+<li><code>transaction.py</code> 回滚只允许管理目录内的路径，manifest 被篡改也无法越界删文件；路径统一 <code>expanduser</code></li>
+<li>免费包不再包含 launch agent 清理块</li>
+<li>description 写明 <code>doctor --profile</code> 会加载 <code>~/.zshrc</code> 取样；卸载改为「交互模式先询问」</li>
+<li>SkillPay 计费周期改为每季度 ¥14.9（平台不支持年付；约 ¥59.6/年，不自动续费）</li>
+</ul>
+
+<h2>3.0.4 · 审核一致性收尾（2026-11-18）</h2>
+<ul>
+<li>卸载：先快照安装清单再删运行时，brew 包现在真按清单卸；删 <code>~/.config/starship.toml</code> 前先还原安装时的最新备份</li>
+<li>description 补全：Shell Integration 未执行会继续后续步骤、<code>update.sh</code> 的 git fetch/pull、Ghostty <code>ssh-terminfo</code> 的远端 terminfo、卸载的完整范围</li>
+<li>Lite 文档统一改称「换机迁移」；免费版文档不再出现专业版跟随系统命令</li>
+<li>metadata 补 <code>git</code> 依赖</li>
+</ul>
+
+<h2>3.0.3 · 声明与行为对齐（2026-11-18）</h2>
+<ul>
+<li><code>sync --pull</code> 与 <code>update</code> 覆盖 starship.toml 前做时间戳备份</li>
+<li>安装记录 brew 清单，卸载只删清单内的包</li>
+<li>oh-my-zsh 未执行时停止；Shell Integration 未执行时保留下载文件</li>
+<li>atuin 历史导入改为 <code>HKW_ATUIN_IMPORT=1</code></li>
+<li>免费包移除跟随系统，该能力保留在专业版</li>
+</ul>
+
+<h2>3.0.2 · 声明与行为对齐（2026-11-18）</h2>
+<ul>
+<li>远程安装改为「下载 → 打印 SHA-256 → <code>HKW_ASSUME_YES=1</code> 才执行」</li>
+<li><code>setup-cli</code> 改为 <code>--config</code> 显式传入，不再探测 CLI 配置目录</li>
+<li>卸载只删 <code>find</code> 命中目录；starship 覆盖前先备份</li>
+</ul>
+
+<h2>3.0.1 · 安全审查修复（2026-11-18）</h2>
+<ul>
+<li>免费包剔除站点资产与维护者工具：108 → 90 个文件，安装后不再带官网页面、测试和发版脚本</li>
+<li>SKILL 描述如实声明可选能力：专业版包安装、换肤回滚、P3 广色域、只读检测 AI CLI 设置</li>
+<li>下载脚本改为「先保存到文件、确认后再执行」，不再下载即执行</li>
+<li>脚本引用统一加 <code>scripts/</code> 前缀；功能不变</li>
+</ul>
+
+<h2>3.0.0 · 专业版首发</h2>
+<ul>
+<li>专业版走平台购买：支付宝 SkillPay 按年（¥59.9/年，不自动续费）、腾讯 SkillHub 按次（¥2.99/次）</li>
+<li>购买入口改为平台渠道，不再以微信发货为主路径</li>
+<li>免费版更名为 Lite（<code>hekouwang-terminal-lite-skill</code>）</li>
+<li>官网重设计：能力对照表 + 场景故事，说清免费版与专业版差异</li>
+</ul>
+
+<h2>2.13.0 · 视觉层与 P3（2026-11-13）</h2>
+<ul>
+<li>品牌主题改用英文名：Ember（暖黑暗）、Voltage（霓虹科技黑）、Parchment（暖纸亮）、Ledger（财经白）；旧名仍作为别名可用</li>
+<li>视觉审计新增选区 / 搜索命中 / 光标 / 亮底中性槽 / 暗字 / 色相区分度：不再只审 16 个 ANSI 槽</li>
+<li>视觉审计新增 diff 新增/删除底的明度差与红绿色盲分离度；diff 底改成 19%/10% 不对称配方，灰度/色盲下也能分开</li>
+<li>iTerm2 Triggers 改用语义表面：error / warn / success 的背景按主题解算，文字 ≥4.5:1，不再直接拿 raw ANSI 红黄绿当底</li>
+<li>中性梯：<code>neutral_ramp</code> 解出 surface / overlay / border / muted 四档，预览标题栏和代码块改用设计过的 surface；审计新增 <code>neu</code> 列</li>
+<li>iTerm2 Cursor Guide 启用，颜色取中性梯 <code>border</code>；daily / focus / remote 开，present / record 关</li>
+<li>社区主题补签名 accent：Catppuccin peach、Gruvbox orange、Rose Pine rose、Tokyo cyan；cursor / badge / tab 不再等于前景色</li>
+<li>P3 广色域：<code>./theme.sh &lt;主题&gt; --p3</code> 把 iTerm2 Profile 转成 Display P3；彩色槽扩彩度，背景/前景/中性色只做 P3 等价表示</li>
+<li>审计新增「语法色 × diff 行底」≥3:1 检查（comment 除外）；新增 <code>tests/test-p3.sh</code> 覆盖打开/回退</li>
+<li>Ember 取消专用字体覆盖，九套主题统一按 <code>font.conf</code> 优先级取字体</li>
+<li>9 套色板提彩：只放大 OKLab 彩度、不动色相，主题列表和投屏里更容易一眼分开</li>
+<li><code>claude-code-light</code> 的 ANSI 7 从 1.19:1 提到 3.04:1，ANSI 0 与 15 不再是同一个颜色</li>
+<li>亮色主题选区从 1.19–1.29 提到 1.40 左右；v1 / tokyo 选区也补到 1.5</li>
+<li>搜索命中改成按「对背景可见、对正文可读」解算，catppuccin / tokyo 的 3.07 / 3.81 提到 4.5+</li>
+<li><code>./setup-cli.sh</code>：检查 CodeBuddy / Claude Code 是否在用 ANSI 主题，并可带备份切到非 ANSI 的 Dark / Light</li>
+<li><code>./setup-gui.sh</code> 新增复制即选、三击选折行、标签页新输出指示</li>
+</ul>
+
+<h2>2.12.0 · 色板视觉地板</h2>
+<ul>
+<li>社区色板生成时统一过视觉地板：只调 OKLab 明度、保住色相，catppuccin-mocha 与 tokyo-night 各 6 对 normal / bright 同色已分开，<code>ls</code> 与 <code>git diff</code> 的强调层恢复可辨</li>
+<li>gruvbox-dark 的 red 从 2.69:1 提到 4.55:1，错误提示不再糊在背景里</li>
+<li>新增 <code>./theme.sh --audit</code>：只读体检对比度地板 / 明暗分档 / 暗字槽，换肤前先看色板站不站得住；<code>./doctor.sh --status</code> 与 <code>./release.sh --check</code> 同步接入</li>
+<li><code>./setup-gui.sh</code> 补上 iTerm2 全局窗格边距——左右 10pt / 上下 8pt，运行前需先退出 iTerm2</li>
+<li>付费档同期：光学档新增 CJK 等宽层（中文与图标同字号，CJK 正好两格），<code>font.sh verify</code> 按真实字体度量打分；场景补 Ghostty 窗口内边距，自动补全的幽灵文字改跟主题暗字槽</li>
+</ul>
+
+<h2>2.11.0 · 换肤可回滚、结果可验收</h2>
+<ul>
+<li>换肤前可用 <code>--plan</code> 看管理范围；正式切换自动留快照，失败自动恢复</li>
+<li><code>--rollback / --history</code> 可恢复或查看最近 5 次换肤快照</li>
+<li><code>doctor.sh --parity</code> 对照源主题验收 iTerm2；付费版扩展到六终端与工具链</li>
+<li>付费 zip 更新增加版本门、更新前快照与失败恢复</li>
+</ul>
+
+<h2>2.10.8 · 六终端说明页（公开可见）</h2>
+<p>文档站「四终端」升格为「六终端」：对照表与落地页标明付费档同步 iTerm2 · Ghostty · Warp · cmux · Tabby · 自带终端。开源版仍只同步 iTerm2。</p>
+
+<h2>2.10.7 · README 主 CTA 指向产品主页（公开可见）</h2>
+<p>仓库 README 顶栏主链改为产品主页；文档站退为次链。产品叙事以 Pages 主页为准。</p>
+
+<h2>2.10.6 · 标题字重对齐（公开可见）</h2>
+<p>文档站重跑字体子集（含拉丁）；标题中英同族，Hero 渐字不再比黑字细。</p>
+
+<h2>2.10.5 · 落地页徽章归位（公开可见）</h2>
+<p>Hero 预览卡上的 <code>1 palette</code> 收到标题栏右侧。</p>
+
+<h2>2.10.4 · 落地页 Hero + 功能卡（公开可见）</h2>
+<p>主页改成左文案 / 右预览 + 六格卖点卡（结构参考常见产品站，仍用 OneLook V1 色板）。</p>
+
+<h2>2.10.3 · README 对齐文档站简介（公开可见）</h2>
+<p>仓库 README 开头与文档站「为什么是 OneLook」同文案：文档地图 + 开源/付费分界，并链到 Pages。</p>
+
+<h2>2.10.2 · 四终端说明进文档（公开可见）</h2>
+<p>新增「四终端」文档页：iTerm2 · Ghostty · Warp · 自带终端，开源/付费各拿到什么、什么仍是 iTerm2 独家。</p>
+
+<h2>2.10.1 · 选肤预览进文档（公开可见）</h2>
+<p>文档站展示 <code>./theme.sh</code> 的 fzf + ANSI 选肤界面截图（换肤页 / 画廊 / CLI）。</p>
+
+<h2>2.10.0 · 体验小改（公开可见）</h2>
+<ul>
+<li><code>./theme.sh</code>：fzf 模糊选 + ANSI 预览（无 fzf 仍出画廊）</li>
+<li><code>./doctor.sh --fix</code>：按组问修</li>
+<li><code>./sync.sh --state-export</code> / <code>--state-import</code>：换机钉住状态</li>
+</ul>
+
+<h2>2.9.4 · 脚本完整操作手册（公开可见）</h2>
+<p>文档站「CLI 与脚本」页：每个开源脚本的完整用法（含 dry-run / 撤回）；付费脚本只写命令形态。</p>
+
+<h2>2.9.3 · 文档站语言跟链（公开可见）</h2>
+<p>中文模式下点侧栏不再闪回英文；链接带 <code>?lang=</code>。安装行为不变。</p>
+
+<h2>2.9.2 · 文档站导航修复（公开可见）</h2>
+<p>文档页顶栏不再塞满子链；侧栏 + 语言切换恢复。安装行为不变。</p>
+
+<h2>2.9.1 · 货架名 OneLook（公开可见）</h2>
+<p>产品展示名：**OneLook**（把「同色」做成「同观感」）。</p>
+<p>仓库仍叫 <code>hekouwang-terminal-kit</code>；落地页与 README 标题已换。安装 / 卸载行为不变。</p>
+
+<h2>2.9.0 · 语义交互层 v1 · doctor 状态机（公开版可见的变化）</h2>
+<p>**语义交互层 v1（随 Profile 交付）**</p>
+<p>换肤后**新开 tab**：Cmd-click <code>path:line</code>、Git SHA、<code>localhost:port</code>；四击按 Smart Selection 选中。</p>
+<p>Semantic History 走本机最佳编辑器。</p>
+<p>**doctor 状态机仪表盘**</p>
+<p>```bash</p>
+<p>./doctor.sh --status</p>
+<p>```</p>
+<p>一眼看：theme / auto / node / optical·scene（付费才有值）/ semantic / Ghostty 是否需重载。</p>
+
+<h2>2.8.0 · Node 自选 · 跟随系统默认关 · 备份归目录（公开版可见的变化）</h2>
+<p>开源版与付费版共用这三条（不涉及付费档能力）：</p>
+<p>**Node 管理器四选一**</p>
+<p>装机可选 <code>fnm</code>（默认）/ <code>nvm</code> / <code>brew</code> / <code>vfox</code>，或装完跑 <code>./node-mgr.sh &lt;名字&gt;</code>。</p>
+<p>选择写在 <code>~/.config/hekouwang-terminal/node.sh</code>，<code>.zshrc</code> 只 source 那一份；**只留一套，别混用**。</p>
+<p>```bash</p>
+<p>./install.sh --node vfox</p>
+<p>./node-mgr.sh fnm</p>
+<p>```</p>
+<p>**跟随系统深浅色：默认关，现为专业版能力**</p>
+<p>2.x 曾默认关闭但可用；3.0 起只在专业版提供，免费版没有这个命令。手动 <code>./theme.sh &lt;主题&gt;</code> 会钉住该主题，避免「配了黑色被系统浅色顶回白色」。</p>
+<p>**.zshrc 备份进专用目录**</p>
+<p>不再往家目录根丢 <code>~/.zshrc.bak.*</code>。统一进 <code>~/.hekouwang-terminal-backups/</code>；装机时会把旧散落文件收进去。卸载不会误删这份还原历史。</p>
+
+<h2>2.7.1 · 窗口水印可自定义（公开版可见的变化）</h2>
+<ul>
+<li>付费档场景引擎新增 <code>./scene.sh badge &lt;文字&gt;</code>：iTerm2 窗口右上角的水印写自己的名字或项目名，</li>
+<li>开源版行为不变：<code>scene.sh</code> / <code>config/scenes/</code> 仍只在付费包里</li>
+</ul>
+<p>钉住之后跨场景、跨换肤都跟着走，<code>off</code> 清掉</p>
+
+<h2>2.7.0 · 场景美学引擎（公开版可见的变化）</h2>
+<ul>
+<li>付费第二柱落地：**场景美学引擎**（<code>./scene.sh</code>）</li>
+<li>开源版不包含 <code>scene.sh</code> / <code>config/scenes/</code>（与 <code>font.sh</code> 同分档）</li>
+</ul>
+<p>日常 / 专注 / 投屏 / 录屏 / 远程一键切气质；开源版行为不变</p>
+
+<h2>2.6.0 · 产品三柱定位（公开版可见的变化）</h2>
+<ul>
+<li>付费产品正式立名三柱：**终端光学校准引擎**、**场景美学引擎**、**语义交互层**</li>
+<li>开源版行为：仍是完整 iTerm2 换肤；光学校准 / <code>font.sh</code> / 光学档目录只在付费包</li>
+<li>主题生成器与社区三套默认视觉不变</li>
+<li>仓根 README（中/英）恢复完整主故事：对比图 → 痛点 → 差异 → 分档 → 安装 → 颜值 → 日常命令 → 换肤 → 维护（约 280–320 行）</li>
+<li><code>docs/manual*</code> 保留进阶、FAQ、设计原则、文件级分档与长说明；不再要求路人先读手册</li>
+<li>付费实现（Skill / 品牌色板 / 多终端生成器等）仍不进公开仓</li>
+</ul>
+<p>总定位：把「同色」做成「同观感」</p>
+
+<h2>2.5.1 · 主题生成器支持状态层字段</h2>
+<ul>
+<li>色板可选 <code>bold</code> / <code>matchbg</code> / <code>faint_text_alpha</code> / <code>surfaces</code>：自定义主题可单独定粗体、搜索命中、弱化字透明度、diff 表面色</li>
+<li>社区三套默认视觉不变；品牌主题的可读性微调在付费包</li>
+</ul>
+
+<h2>2.5.0 · 标签页改成「一块画布 + 一个圆点」</h2>
+<ul>
+<li>**变更：标签页不再按项目染底色**，改成在标题前挂一个彩色圆点（像 VS Code / Zed</li>
+<li>🐞 修：安装那一节的 <code>doctor.sh</code> 截图拍的是**付费档**的机器（第 5 节「全生态同色」</li>
+<li>🐞 修：安装流程那行写着「主题与**全生态配色**」—— 全生态同色是付费能力，</li>
+<li>剔掉一张公开仓用不上的截图（付费功能的项目工作区图，只有付费版首页在用）</li>
+<li>顶部两个 badge（四终端 / 一份色板管全工具链）改成明标「付费档」，</li>
+<li>付费包 zip 现在把 <code>VERSION</code> 一并打进去：以前老版本免费仓解压新付费包之后，</li>
+<li>发版脚本新增 <code>--release</code>：GitHub Release 的发布说明直接取自这份更新日志的同名小节，</li>
+</ul>
+<p>的项目色点）。一整条顶栏被刷成高饱和色块，跟窗体明显不是一家；现在顶栏永远跟</p>
+<p>窗口底色走，也就是 Minimal 主题本来的「整窗一块画布」。常驻项目可以在</p>
+<p><code>~/.zshrc</code> 的 <code>HKW_TAB_DOT</code> 里钉死圆点，没钉的按仓库根路径哈希取一个 ——</p>
+<p>同一个仓永远同一个点</p>
+<p>- ⚠️ **升级不会动你已有的 <code>~/.zshrc</code>**（安装脚本从不覆盖你的配置）。想要这个效果，</p>
+<p>照 <code>config/zshrc.template</code> 里的 <code>_hkw_title</code> 手工换一下那一段</p>
+<p>- ⚠️ 换完之后，已经染过色的标签页要**再画一次提示符**才会恢复（回车一下或新开标签）：</p>
+<p>标签色是 iTerm2 的**会话级状态**，光把染色代码删掉，旧颜色会一直挂着</p>
+<p>八行全绿），而开源版那一节本来就不会全绿。已在图下写明，免得你以为自己装坏了</p>
+<p>开源版只同步 iTerm2。跟当初 <code>install.sh</code> 收尾吹「连 bat/fzf/git diff 一起换」同一个错</p>
+<p>并补一个「开源版＝配好的 iTerm2 · MIT」的绿标 —— 第一屏就该看得出哪句属于哪档</p>
+<p>树里根本没有 VERSION，<code>update.sh</code> 会静默打「版本未知」。<code>unlock.sh</code> 另加一句提醒：</p>
+<p>本地版本与包里版本不一致时告诉你先 <code>git pull</code></p>
+<p>不另写一份对外文案。公开仓的 Release 页以前也是手发的，2.3.0 / 2.4.0 都漏了</p>
+
+<h2>2.4.0 · Claude Code Skill 归付费档</h2>
+<ul>
+<li>发版脚本新增 <code>--tag</code>：版本号从 <code>VERSION</code> 取，母版与两个子仓一条命令打齐并推送。</li>
+<li>**变更：Claude Code Skill 归付费档。** 开源版不再带 <code>SKILL.md</code>，</li>
+<li>新增仓根 <code>VERSION</code> 文件当版本号唯一真相源。以前版本号读的是 <code>SKILL.md</code> 的</li>
+</ul>
+<p>以前 tag 是手打的，2.3.0 / 2.4.0 连着两版都没人记得打（线上最后一个 tag 停在 2.2.0），</p>
+<p>已回补 v2.3.0</p>
+<p>「装进 <code>~/.claude/skills/</code> 让 AI 驱动整套」从这一版起属于付费包。</p>
+<p>**开源版没有任何功能因此少掉**：脚本一个不少、参数一个不改，</p>
+<p>只是由你自己敲 <code>./theme.sh</code> / <code>./doctor.sh</code> / <code>./migrate.sh</code>，而不是让 AI 替你挑</p>
+<p>frontmatter，那个文件走了之后 <code>update.sh</code> 会安静地打「版本未知」——</p>
+<p>功能没坏、也没有任何报错，但你看不出自己在哪一版。已连同一道校验门一起补上</p>
+
+<h2>2.3.0 · 项目主页与「怎么买」</h2>
+<ul>
+<li>新增项目主页 &lt;https://huiyonghkw.github.io/hekouwang-terminal-kit/&gt;：</li>
+<li>🐞 修：主页中文标题字重是假的 —— 系统的 PingFang SC 最粗只到 Semibold，</li>
+<li><code>theme.sh</code> / <code>doctor.sh</code> / <code>install.sh</code> 在开源版下各多打一行，说明付费档在哪儿。</li>
+<li>🐞 修：发版脚本 <code>--update</code> 用的 <code>rsync -a</code> 会静默漏发**等长**改动</li>
+<li>🐞 修：**这份更新日志以前根本没进过公开仓**（导出脚本的 <code>.gitignore</code> 把它自己</li>
+<li>🐞 修：<code>install.sh</code> 装完的收尾写着「换肤（连 bat/fzf/git diff 一起换）」，</li>
+<li>全线脚本、生成器、模板的对外文案默认英文；<code>--lang zh</code> 或 <code>HKW_LANG=zh</code> 切中文</li>
+<li><code>install.sh</code> 首次交互安装时问一次语言并记住（<code>~/.config/hekouwang-terminal/lang</code>），</li>
+<li>文档双语并列：<code>README.md</code> / <code>README.zh-CN.md</code>、<code>SKILL.md</code> / <code>SKILL.zh-CN.md</code></li>
+<li><code>.zshrc</code> 模板分语言（<code>config/zshrc.template</code> / <code>.zh</code>），落进你家目录的注释是你选的那种语言</li>
+<li>主题显示名分中英两套：产物里烧英文名，中文名在部署那一刻注入 ——</li>
+<li>英文版模板里的 Homebrew 国内镜像改为默认注释掉（在国外网络上它只会更慢）</li>
+<li><code>migrate.sh</code> 自动回滚现在真的还原 <code>~/.zshrc.local</code>：以前 <code>$LOCAL_BAK</code> 从没被赋值，</li>
+<li><code>uninstall.sh --dry-run</code> 不再谎报「已还原 ~/.zshrc」——它一个字节都没动</li>
+<li><code>uninstall.sh</code> / <code>install.sh</code> 认 Ghostty config 与自带终端 Profile 时中英两种标记都认，</li>
+<li><code>install.sh</code> 里 <code>setup-gui.sh</code> 失败不再把整个安装带走</li>
+<li>换肤回执改成分组（终端 / 工具链），一眼看清哪些真生效了、哪些跳过了</li>
+<li><code>./theme.sh --preview &lt;名字&gt;</code> 出一整块「假终端」：提示符、文件列表、git diff、</li>
+<li><code>./theme.sh --gallery</code> 把全部主题挨个渲一遍</li>
+<li>标题栏默认与背景同色，整窗一块画布</li>
+<li>主题生成器新增旧产物清理：移除一套色板后，它留下的文件会一并清掉，</li>
+<li>修 iTerm2 在 GUI 里编辑过 Dynamic Profile 后，文件被回写成存根导致换肤失效</li>
+<li>修 <code>Send text at start</code> 被 GUI 手滑写入后，每开一个 tab 都自动敲一行命令，</li>
+<li>**Minimal 窗口形态**：无标题栏 · 无边框 · 无滚动条 · 无限回滚</li>
+<li>**配色**：3 套社区主题（catppuccin-mocha / tokyo-night / gruvbox-dark），</li>
+<li>**质感层**：毛玻璃 · 透明度 · 光标形态</li>
+<li>**Triggers**（随 Profile 交付，不用手点 GUI）：ERROR / WARN / SUCCESS 自动标色，</li>
+<li>**<code>Shift+Enter</code> 换行不提交**：给 AI CLI 写多行 prompt 用</li>
+<li>**现代 CLI 全家桶**：eza / bat / fzf / fd / zoxide / ripgrep / atuin / delta</li>
+<li>**<code>./migrate.sh</code>**：接管已有 <code>.zshrc</code>（搬进 <code>.zshrc.local</code>，**不是覆盖**）。</li>
+<li>**<code>./doctor.sh</code>**：只读自检；<code>--fix</code> 逐项修；<code>--profile</code> 用 zprof 点名慢插件</li>
+<li>**<code>./uninstall.sh</code>**：一键还原，<code>--dry-run</code> 先看清单。</li>
+<li>全部写操作都能 <code>--dry-run</code> 预演</li>
+</ul>
+<p>免费/付费对比图、分档表、怎么买、七天退款、能力边界，中英双语。</p>
+<p>支持微信支付与支付宝；页面零 CDN，中文字体是自托管子集（102 KB），墙内也能瞬间打开</p>
+<p><code>font-weight:900</code> 在它身上不成立，标题一律发虚。已换成带完整字重轴的自托管字体</p>
+<p>只有一行、只在付费件缺席时打；装了付费包之后一句都不会出现</p>
+<p>（版本号升位、改一个字符的 typo），已改成按校验和比对</p>
+<p>生成的这份忽略掉了，全程零报错）。所以 2.3.0 之前没有历史记录，不是没改过</p>
+<p>但开源版只同步 iTerm2，工具链同色是付费能力。这行文案说的不是开源版能做到的事，</p>
+<p>已改成「换肤：./theme.sh」</p>
+<p>**语言：默认英文，可切中文**</p>
+<p>之后所有命令跟着走；非交互运行永远不卡在这个问题上</p>
+<p>两种语言共用同一套生成产物，不会有两份互相漂的 JSON</p>
+<p>**修复**</p>
+<p>追加进去的内容永远留着，回滚是假的</p>
+<p>换语言重装后不会漏删、也不会每次多备份一份</p>
+<p>**换肤**</p>
+<p>语法高亮、ERROR/WARN 标色都在一张图里，不用真换肤就能挑</p>
+<p>**主题**</p>
+<p>不再永远赖在目录里</p>
+<p>**修**</p>
+<p>换肤/重装都清不掉（Dynamic Profile 只覆盖 JSON 里出现过的键，现已显式声明为空）</p>
+<p>**这一版把「一台配好的 iTerm2」做完整了。**</p>
+<p>走同一份色板生成，改色只改一个文件</p>
+<p>密码提示自动弹密码管理器</p>
+<p>按段落判定，写入前 <code>zsh -n</code> 验语法，写完真起一个 shell 验，起不来自动回滚</p>
+<p><code>.zshrc</code> 从备份**还原**而不是删掉；GUI 设置用 <code>defaults delete</code> 回出厂默认</p>
+<p>⚠️ **字体**：1.x 曾从第三方仓库拉 Operator Mono（商业字体）—— 自用是灰色地带，</p>
+<p>随产品分发就是侵权。2.0 已移除，默认改用 Maple Mono NF CN（SIL OFL，可商用可分发）。</p>
+<p>早期版本的迭代记录（安装脚本、主题生成器、<code>.zshrc</code> 模板成型的过程）不在公开版列出。</p>
+<p>从 2.0.0 开始是当前形态。</p>
+<!-- END:GENERATED:CHANGELOG -->
+<p><a href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill/blob/main/CHANGELOG.md"><span class="en">Full CHANGELOG on GitHub →</span><span class="zh">GitHub 上完整 CHANGELOG →</span></a></p>
+
+<div class="pager mt-12 flex justify-between border-t border-ash-100/10 pt-6 text-sm text-ash-400"><a href="pricing.html">← <span class="en">Pricing</span><span class="zh">定价</span></a><span></span></div>
+</article>
+</div></div>
+<footer class="border-t border-ash-100/10 bg-ink-950 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
+    <p class="font-mono text-xs text-ash-500">© 2026 会勇禾口王 · MIT · <!-- BEGIN:GENERATED:VERSION --><span class="ver-badge">v3.0.1</span><!-- END:GENERATED:VERSION --></p>
+    <div class="flex gap-5 text-sm text-ash-400">
+      <a class="transition hover:text-ash-100" href="guide/index.html"><span class="en">Docs</span><span class="zh">文档</span></a>
+      <a class="transition hover:text-ash-100" href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span></a>
+      <a class="transition hover:text-ash-100" href="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js?v=3.0.4"></script>
+</body>
+</html>
