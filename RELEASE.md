@@ -1,8 +1,10 @@
 # 渠道与版本矩阵
 
 > 组织标准：`~/.user-agents/standards/hekouwang-skill-structure.md`  
-> 本仓特例见 [`STRUCTURE.md`](STRUCTURE.md)。  
-> 双产物版本：根 `VERSION` = `edition/VERSION`。  
+> 付费化：`~/.user-agents/standards/hekouwang-skill-monetize.md` · playbook：`…/hekouwang-skill-monetize-playbook.md`  
+> 本仓特例见 [`STRUCTURE.md`](STRUCTURE.md)。公开面 = **策略 A（Lite 引流）**。  
+> 双产物版本：根 `VERSION` = `edition/VERSION`（`release.sh --check`）。  
+> 按次产物：`services/terminal-402/dist/<version>/`（不与技能 `dist/` 混放）。  
 > 最后更新：2026-11-19（T1-b）
 
 ## 一、三个产品

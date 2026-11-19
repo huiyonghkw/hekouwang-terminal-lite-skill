@@ -40,9 +40,8 @@ roadmap/
 # 已归档的旧分档子仓（OSS / PRO）连同各自 .git 一起留档，不进母版历史。
 archive/
 
-# 标准结构四件：public 工作树、edition 专业版构建输入、dist 构建产物。
-# public/ 是 lite 孤儿分支 worktree（不能与 main 共用历史）；edition/ 是独立本地仓库。
-# 两者都不进主仓库。详见 STRUCTURE.md。
+# edition = Pro 增量本地仓；dist = 构建产物（均不进主仓 git）。
+# public/ 仅防误建同名目录（旧 worktree 已废止，见 STRUCTURE）。
 public/
 edition/
 dist/

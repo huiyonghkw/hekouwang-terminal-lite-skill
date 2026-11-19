@@ -1,8 +1,10 @@
 # 目录结构（本仓库特例）
 
-> 组织标准：见 `~/.user-agents/standards/hekouwang-skill-structure.md`  
-> 本文件只写本仓特例与成熟度档位。  
-> 渠道 × 版本口径见 [`RELEASE.md`](RELEASE.md)。  
+> 组织标准（目录）：`~/.user-agents/standards/hekouwang-skill-structure.md`  
+> 付费化口径：`~/.user-agents/standards/hekouwang-skill-monetize.md`  
+> 迁移执行手册：`~/.user-agents/standards/hekouwang-skill-monetize-playbook.md`  
+> 本文件只写本仓特例与成熟度档位。渠道 × 版本见 [`RELEASE.md`](RELEASE.md)。  
+> 公开面策略：**A. Lite 引流**。版本同号靠 `release.sh --check`（根 `VERSION` ↔ Lite SKILL ↔ `edition/VERSION`）。  
 > 更新：2026-11-19（T1-b：干净主仓历史；拆除 `public/` 日常依赖）
 
 ---
