@@ -146,14 +146,22 @@ def rewrite_badge(src: str, text: str, rel: str) -> tuple[str, bool]:
         return src[: b + len(BEGIN_VER)] + text + src[e:], True
     lines = src.splitlines(keepends=True)
     for i, line in enumerate(lines):
-        if '© 2026 会勇禾口王 · MIT' in line:
-            j = line.rfind("</p>")
-            if j == -1:
-                break
-            tag = f"{BEGIN_VER}{text}{END_VER}"
-            lines[i] = line[:j] + tag + line[j:]
-            return "".join(lines), True
-    print(f"✗ {rel}: 缺版本标记且页脚无 <span class=\"brand\">，拒绝盲写", file=sys.stderr)
+        if "© 2026 会勇禾口王" in line and BEGIN_VER not in line:
+            # 插到版权行闭标签前（双层 footer 用 </span>，旧单行页脚用 </p>）。
+            for close in ("</span>", "</p>"):
+                j = line.rfind(close)
+                if j == -1:
+                    continue
+                if "MIT ·" in line:
+                    insert = f"{BEGIN_VER}{text}{END_VER}"
+                elif "MIT" in line:
+                    insert = f" · {BEGIN_VER}{text}{END_VER}"
+                else:
+                    insert = f" · MIT · {BEGIN_VER}{text}{END_VER}"
+                lines[i] = line[:j] + insert + line[j:]
+                return "".join(lines), True
+            break
+    print(f"✗ {rel}: 缺版本标记且页脚无版权行，拒绝盲写", file=sys.stderr)
     return src, False
 
 
