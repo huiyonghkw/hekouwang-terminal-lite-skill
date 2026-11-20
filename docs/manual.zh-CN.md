@@ -166,7 +166,7 @@ Lite 版不是演示版：3 套配色、毛玻璃、日志自动标色、`Shift+
 配色能换、代码能重写，这三样都是拿时间换出来的。
 
 **想要专业版** → **[huiyonghkw.github.io/hekouwang-terminal-lite-skill](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/)**
-（定价与平台购买入口）。SkillPay **¥14.9/季度**（约 ¥59.6/年，不自动续费）· SkillHub **¥2.99/次**；试用 0。购买只走平台，不以微信发 zip 为主路径。
+（定价与平台购买入口）。SkillPay **¥14.9/季度**（约 ¥59.6/年，不自动续费）· [SkillHub](https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid) **¥2.99/次**（v0.1.0 已上线）；试用 0。购买只走平台，不以微信发 zip 为主路径。
 
 **技术上怎么分的**（摆在明面上，不搞解锁码）：
 

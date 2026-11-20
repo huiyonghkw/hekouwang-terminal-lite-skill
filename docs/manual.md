@@ -153,7 +153,7 @@ The lite build is not a demo: 3 color schemes, blur, automatic log coloring, `Sh
 
 **Why the line sits there**: the 3 community schemes are other people's open-source work, so charging for them would not stand up; blur and Triggers are what make a terminal worth screenshotting, and hiding them would stop the free build from doing its job as an advertisement. **What is sold is the three things I made myself** — four themes derived from brand tokens, the generator behind "one palette drives the whole tool chain", and **the full Skill that teaches an agent to use all of it** (every workflow, every pitfall, every judgement call written out, so it knows which script to run with which flags and how to read the output without you explaining). Colors can be swapped and code can be rewritten; all three of those were paid for in time.
 
-**To buy** → **[product home / pricing](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/pricing.html)** — SkillPay **¥14.9/quarter** (≈¥59.6/year, no auto-renew) · SkillHub **¥2.99/call**; trial 0. Platforms only — WeChat zip is not the 3.0 main path.
+**To buy** → **[product home / pricing](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/pricing.html)** — SkillPay **¥14.9/quarter** (≈¥59.6/year, no auto-renew) · [SkillHub](https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid) **¥2.99/call** (v0.1.0 live); trial 0. Platforms only — WeChat zip is not the 3.0 main path.
 
 **How the split is done technically** (out in the open, no unlock codes):
 

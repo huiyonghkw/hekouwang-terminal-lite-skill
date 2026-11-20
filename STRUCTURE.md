@@ -24,6 +24,7 @@
 |---|---|---|
 | 专业版 | `hekouwang-terminal-skill` | overlay zip / SkillPay |
 | 免费版 | `hekouwang-terminal-lite-skill` | GitHub + Pages + ClawHub |
+| 按次生成 | `hekouwang-terminal-generate-paid` | SkillHub Pay Skill（独立版本线；0.1.0 已上线） |
 
 根 `SKILL.md` / `SKILL.lite.md` = Lite；`edition/SKILL.md` + `SKILL.paid-section.md` = Pro（`--pack` 拼接）。
 

@@ -210,7 +210,7 @@ CN=1 HKW_ASSUME_YES=1 ./scripts/install.sh
 | Skill | 基础版 | 完整版 |
 | 更新与答疑 | GitHub Issues | 一年内更新 + 群内答疑 |
 
-**专业版 3.0.5**：支付宝 [SkillPay](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=zh) 按季度订阅（¥14.9/季度，不自动续费，约 ¥59.6/年）· 腾讯 SkillHub 按次（¥2.99/次）。购买只走平台渠道，详见 [产品主页](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=zh)。
+**专业版 3.0.6**：支付宝 [SkillPay](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=zh) 按季度订阅（¥14.9/季度，不自动续费，约 ¥59.6/年）· 腾讯 [SkillHub](https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid) 按次（¥2.99/次，v0.1.0 已上线）。购买只走平台渠道，详见 [产品主页](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=zh)。
 
 ## 八、维护
 

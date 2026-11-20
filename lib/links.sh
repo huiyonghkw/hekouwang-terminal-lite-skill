@@ -19,5 +19,5 @@ HKW_URL_REPO="https://github.com/huiyonghkw/hekouwang-terminal-lite-skill"
 # 支付宝 SkillPay：专业版商品深链（¥14.9/季度）
 HKW_URL_SKILLPAY="https://skillpay.alipay.com/shelf/product?productId=P0806000213867166&merchantCode=huiyonghkw"
 
-# 腾讯 SkillHub：商品页上架后填实；当前指向平台根
-HKW_URL_SKILLHUB="https://skillhub.cn/"
+# 腾讯 SkillHub：按次生成商品深链（¥2.99/次 · v0.1.0 已过审上线）
+HKW_URL_SKILLHUB="https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid"

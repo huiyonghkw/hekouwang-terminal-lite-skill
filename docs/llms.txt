@@ -7,7 +7,7 @@
 - [免费版 Lite（MIT）](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/pricing.html)：3 套社区主题（tokyo-night / gruvbox-dark / catppuccin-mocha），配好的 iTerm2 + 基础 Skill
 - [专业版](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/pricing.html)：7 套主题 + 多终端 + 工具链同色 + 光学校准 + 场景引擎 + 项目工作区
 - 终端覆盖矩阵：iTerm2 / Ghostty / Terminal.app 7/7；Warp / Tabby 5/7；cmux 侧栏
-- 定价：SkillPay ¥14.9/季度（约 ¥59.6/年，不自动续费）· SkillHub ¥2.99/次（无免费次数）
+- 定价：SkillPay ¥14.9/季度（约 ¥59.6/年，不自动续费）· [SkillHub](https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid) ¥2.99/次（无免费次数，v0.1.0 已上线）
 
 ## 页面
 

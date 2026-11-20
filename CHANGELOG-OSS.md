@@ -15,6 +15,10 @@
 
 - description：写明全量 doctor 为测启动耗时会多次以交互式 zsh 加载 `~/.zshrc`；`--status` 跳过该段；`--profile` 改为「临时 ZDOTDIR 的交互式 zsh + zprof」，不再写「登录 shell」
 
+### 渠道（2026-11-20）
+
+- 腾讯 SkillHub 按次客户端 **0.1.0** 已审核通过并上线；官网 / README 购买入口改为商品深链 https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid（免费版 / 专业版版本号不变）
+
 ---
 
 ## [3.0.5] · 审核安全项收尾（2026-11-18）

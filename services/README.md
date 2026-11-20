@@ -6,7 +6,7 @@
 
 | 目录 | 用途 | 状态 |
 |---|---|---|
-| `terminal-402/` | 腾讯 SkillHub 按次：主题生成 / 光学处方，¥2.99/次 | **E3-1/E3-2 脚手架已建**；本地 MOCK；未注册生产 serviceId |
+| `terminal-402/` | 腾讯 SkillHub 按次：主题生成 / 光学处方，¥2.99/次 | **客户端 0.1.0 已审核通过并上线**；商品页 https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid ；本地仍可 MOCK |
 
 借鉴写作技能 `hekouwang-writer-skill/services/skillhub-402/` 的 402 契约；业务 handler 为终端生成/处方，不是 `doc_lint`。
 

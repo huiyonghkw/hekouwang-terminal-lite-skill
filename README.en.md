@@ -205,7 +205,7 @@ All shortcuts → [`references/shortcuts.md`](references/shortcuts.md)
 | Skill | basic | full |
 | Updates and support | GitHub Issues | one year of updates + group Q&A |
 
-**Pro 3.0.5**: Alipay [SkillPay](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=en) quarterly subscription (¥14.9/quarter, no auto-renew, ≈¥59.6/year) · Tencent SkillHub per call (¥2.99/call). Buy only through the platforms — see [product home](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=en).
+**Pro 3.0.6**: Alipay [SkillPay](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=en) quarterly subscription (¥14.9/quarter, no auto-renew, ≈¥59.6/year) · Tencent [SkillHub](https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid) per call (¥2.99/call, v0.1.0 live). Buy only through the platforms — see [product home](https://huiyonghkw.github.io/hekouwang-terminal-lite-skill/index.html?lang=en).
 
 ## 8. Maintenance
 
