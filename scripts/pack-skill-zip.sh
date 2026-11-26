@@ -2,7 +2,7 @@
 # ============================================================
 # pack-skill-zip.sh — 打 ClawHub / 平台分发用的免费版瘦身包
 #
-#   ./scripts/pack-skill-zip.sh dist/3.0.6/hekouwang-terminal-lite-skill-3.0.6.zip
+#   ./scripts/pack-skill-zip.sh dist/clawhub/hekouwang-terminal-lite-skill-3.0.6.zip
 #
 # 为什么不直接发 release.sh --lite 的导出树：
 #   导出树是给 GitHub 公开仓用的，里面还有站点资产（docs 图片/字体/页面）和
@@ -14,7 +14,7 @@
 #   materials/、listing-skillpay.md 可留在主仓 git，但不得进 ClawHub / Skill 包。
 #   --lite 导出可能仍带上它们（git 跟踪）；此处强制剔除，自检也会验缺席。
 #
-# 产物路径约定：dist/<version>/（不要再用 dist/release-<version>/）
+# 产物路径约定：dist/clawhub/（Lite 包）；dist/skillpay/ 放 Pro 包
 # 可复现：固定时间戳（1980-01-01）、文件名排序、UTF-8 标记 0x800。
 # ============================================================
 set -euo pipefail

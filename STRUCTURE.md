@@ -1,8 +1,8 @@
 # 目录结构（本仓库特例）
 
-> 组织标准（目录）：`~/.user-agents/standards/hekouwang-skill-structure.md`  
-> 付费化口径：`~/.user-agents/standards/hekouwang-skill-monetize.md`  
-> 迁移执行手册：`~/.user-agents/standards/hekouwang-skill-monetize-playbook.md`  
+> 组织标准（目录）：`~/.user-agents/standards/huiyonghkw/skills/skill-structure.md`  
+> 付费化口径：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize.md`  
+> 迁移执行手册：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize-playbook.md`  
 > 本文件只写本仓特例与成熟度档位。渠道 × 版本见 [`RELEASE.md`](RELEASE.md)。  
 > 公开面策略：**A. Lite 引流**。版本同号靠 `release.sh --check`（根 `VERSION` ↔ Lite SKILL ↔ `edition/VERSION`）。  
 > 更新：2026-11-19（T1-b：干净主仓历史；拆除 `public/` 日常依赖）
@@ -13,7 +13,7 @@
 
 | 档 | 本仓状态 |
 |---|---|
-| **现况** | **L2+ / 冲 L3**：主仓 = Lite（干净单根历史）；Pro 在 `edition/`；白名单 `--pack`；`RELEASE.md` / `.clawhubignore` / `dist/<version>/`；日常 **`git push origin`** 推 `main`；Pages = 公开仓 **`docs/`** |
+| **现况** | **L2+ / 冲 L3**：主仓 = Lite（干净单根历史）；Pro 在 `edition/`；白名单 `--pack`；`RELEASE.md` / `.clawhubignore` / `dist/<channel>/`；日常 **`git push origin`** 推 `main`；Pages = 公开仓 **`docs/`** |
 | **对齐前备份** | 脏历史 tip：`backup/pre-t1b-20261119`（已推 `paid` 远程，勿当公开发布源） |
 
 ---
@@ -26,7 +26,7 @@
 | 免费版 | `hekouwang-terminal-lite-skill` | GitHub + Pages + ClawHub |
 | 按次生成 | `hekouwang-terminal-generate-paid` | SkillHub Pay Skill（独立版本线；0.1.0 已上线） |
 
-根 `SKILL.md` / `SKILL.lite.md` = Lite；`edition/SKILL.md` + `SKILL.paid-section.md` = Pro（`--pack` 拼接）。
+根 `SKILL.md` = Lite 入口；`SKILL.lite.md` = Lite 构建母版（`--lite` 时改名为 `SKILL.md`，本仓特例，勿删）；`edition/SKILL.md` + `SKILL.paid-section.md` = Pro（`--pack` 拼接）。
 
 ---
 
@@ -34,7 +34,8 @@
 
 ```text
 hekouwang-terminal-skill/     # = 公开 Lite 仓本体（origin）
-├── SKILL.md · SKILL.lite.md
+├── SKILL.md                     Lite 入口
+├── SKILL.lite.md                Lite 构建母版（导出改名，勿删）
 ├── scripts/ · config/ · lib/ · references/ · tests/
 ├── docs/                     # GitHub Pages
 ├── materials/ · listing-skillpay.md
@@ -43,7 +44,7 @@ hekouwang-terminal-skill/     # = 公开 Lite 仓本体（origin）
 ├── edition/                  # 本地仓：Pro 增量（无公开远程）
 ├── roadmap/                    # 本地仓：升级与作战地图
 ├── services/terminal-402/    # 私有按次服务
-└── dist/<version>/           # 不版控
+└── dist/skillpay/               # 不版控；Pro zip（ClawHub 走 dist/clawhub/）
 ```
 
 ```text
@@ -76,7 +77,7 @@ hekouwang-terminal-skill/     # = 公开 Lite 仓本体（origin）
 | 命令 | 作用 |
 |---|---|
 | `./scripts/release.sh --lite <目录>` | 导出 Lite 快照（可选；公开面已可直接推主仓） |
-| `./scripts/release.sh --pack` | 从 edition 打 Pro overlay → `dist/<version>/…-paid.zip` |
+| `./scripts/release.sh --pack` | 从 edition 打 Pro overlay → `dist/skillpay/…-paid.zip` |
 | `./scripts/pack-skill-zip.sh …` | ClawHub 瘦身包 |
 | `./scripts/dev-overlay-from-edition.sh` | 本机叠 Pro |
 | `./scripts/release.sh --check` | 自检 |

@@ -1,7 +1,7 @@
 # 渠道与版本矩阵
 
-> 组织标准：`~/.user-agents/standards/hekouwang-skill-structure.md`  
-> 付费化：`~/.user-agents/standards/hekouwang-skill-monetize.md` · playbook：`…/hekouwang-skill-monetize-playbook.md`  
+> 组织标准：`~/.user-agents/standards/huiyonghkw/skills/skill-structure.md`  
+> 付费化：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize.md` · playbook：`…/hekouwang-skill-monetize-playbook.md`  
 > 本仓特例见 [`STRUCTURE.md`](STRUCTURE.md)。公开面 = **策略 A（Lite 引流）**。  
 > 双产物版本：根 `VERSION` = `edition/VERSION`（`release.sh --check`）。  
 > 按次产物：`services/terminal-402/dist/<version>/`（不与技能 `dist/` 混放）。  
@@ -26,7 +26,7 @@
 
 | 渠道 | 产品 | 包 / 源 | 价格 | 线上状态 |
 |---|---|---|---|---|
-| SkillPay | 专业版 | `edition/` → `./scripts/release.sh --pack` → `dist/<version>/…-paid.zip` | ¥14.9 / 季度，不自动续费 | 以支付宝商品页为准 |
+| SkillPay | 专业版 | `edition/` → `./scripts/release.sh --pack` → `dist/skillpay/…-paid.zip` | ¥14.9 / 季度，不自动续费 | 以支付宝商品页为准 |
 | ClawHub | 免费版 | `pack-skill-zip.sh` + `.clawhubignore` | 免费，MIT | 以 ClawHub 页面为准 |
 | SkillHub | 按次 | `services/terminal-402/client/` | ¥2.99 / 次 | **0.1.0 已审核通过并上线**；详情页 https://skillhub.cn/skills/indiv-huiyonghkw/hekouwang-terminal-generate-paid |
 | GitHub / Pages | 免费版 | **主仓 `main`**；Pages = **`docs/`**；日常 `git push origin` | 免费 | 以 Pages 为准 |
@@ -44,7 +44,7 @@
 | SkillHub | 按次客户端 **0.1.0** 已过审上线；官网 CTA 直连商品页 |
 | 成熟度 | L2+（冲 L3 运营面） |
 
-## 五、`dist/<version>/`
+## 五、`dist/<channel>/`
 
 只保留当前版 zip；不强制 SHA256SUMS。`materials/` / listing 不得进包。
 

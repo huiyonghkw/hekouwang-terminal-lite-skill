@@ -1085,7 +1085,7 @@ case "${1:-}" in
     printf "文件数：%s\n" "$(find "$DEST" -type f | wc -l | tr -d ' ')"
     printf "\n${d}下一步（T1-b 后公开面直接推主仓；付费版走 zip）：\n"
     printf "  ${d}主仓已是 Lite：git push origin   # 推 main\n"
-    printf "  ${d}付费版：./scripts/release.sh --pack   # → dist/<version>/…-paid.zip${o}\n"
+    printf "  ${d}付费版：./scripts/release.sh --pack   # → dist/skillpay/…-paid.zip${o}\n"
     printf "${o}"
   fi
   ;;
@@ -1096,8 +1096,8 @@ case "${1:-}" in
   VER_PACK="$(tr -d '[:space:]' < "$SCRIPT_DIR/edition/VERSION" 2>/dev/null \
     || tr -d '[:space:]' < "$SCRIPT_DIR/VERSION" 2>/dev/null)"
   if [ -z "${2:-}" ]; then
-    mkdir -p "$SCRIPT_DIR/dist/$VER_PACK"
-    OUT="$SCRIPT_DIR/dist/$VER_PACK/hekouwang-terminal-skill-${VER_PACK}-paid.zip"
+    mkdir -p "$SCRIPT_DIR/dist/skillpay"
+    OUT="$SCRIPT_DIR/dist/skillpay/hekouwang-terminal-skill-${VER_PACK}-paid.zip"
   else
     OUT="$2"
   fi
